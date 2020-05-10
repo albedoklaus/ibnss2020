@@ -29,6 +29,7 @@ for job, folder in jobs.items():
                 continue
         status = "\r{{: >3.0f}}% Downloading {}".format(filename)
         print(status.format(0), end="")
+        item["file_path"] = requests.utils.quote(item["file_path"])
         r = requests.get(url_file.format(job, item["file_path"]), stream=True)
         r.raise_for_status()
         with open(filename, "wb") as fh:
@@ -40,3 +41,6 @@ for job, folder in jobs.items():
                 percent = progress / item["size"] * 100
                 print(status.format(percent), end="")
             print()
+            if progress != item["size"]:
+                msg = "size mismatch"
+                raise RuntimeError(msg)
