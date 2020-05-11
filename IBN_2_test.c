@@ -26,6 +26,8 @@ int main ()
 		{
 			printf("%s %d\n", "parent", i);
 			sleep(1);
+			int a = 5;
+			printf("%d",a);
 		}
 	}
 	else
@@ -34,6 +36,7 @@ int main ()
 		{
 			printf("%s %d\n", "child", i);
 			sleep(1);
+			int a = 1;
 		}
 		//exit(0);
 	}
