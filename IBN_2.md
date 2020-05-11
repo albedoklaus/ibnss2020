@@ -68,7 +68,16 @@ $ ps -eH
   `test` finden folglich in der dritten Ebene statt. Die geforkten
   Kindprozesse in der vierten Ebene.
 
-- `man ps`
+- In `man ps` finden wir:
+
+  - `S` Prozess schläft, wartet auf Ereignis und kann unterbrochen
+    werden
+  - `s` Dieser Prozess der Sitzungsführer der Shell-Sitzung
+  - `Z` Prozess ist terminiert aber vom Elternprozess noch nicht
+    geerntet
+  - `T` Prozess durch Kontrollsignal beendet
+  - `R` Prozess läuft gerade
+  - `+` Prozess wird im Vordergrund ausgeführt
 
 ## Aufgabe 2
 
@@ -77,7 +86,224 @@ Eine nebenläufige Ausführungseinheit innerhalb eines Prozesses wird Thread gen
 
 ## Aufgabe 3
 
-TODO
+Nur eine Möglichkeit der Ausführung für den Anfangsteil:
+
+```c
+#include <stdlib.h>
+#include <stdio.h>
+#include <pthread.h>
+
+#define NUM_THREADS 3
+
+void* TaskCode(void* argument)
+{
+ int tid;  
+ tid = *((int*) argument);
+ printf("It's me, dude! I am number %d!\n", tid);
+ return NULL;
+}
+
+int main(int argc, char* argv[])
+{
+ pthread_t threads[NUM_THREADS];
+ int thread_args[NUM_THREADS];
+ int rc, i;
+```
+
+Es folgt die Erstellung der Threads, wobei laut Aufgabenstellung
+jede Iteration vollständig abläuft. Nach Ablauf einer
+Iteration kann jedoch der `printf` Befehl aus `TaskCode` eines
+bereits erstellten Threads dazwischenkommen.
+
+```c
+ for (i = 0; i < NUM_THREADS; ++i)
+ {
+  thread_args[i] = i;
+  printf("In main: creating thread %d\n", i);
+  rc = pthread_create(&threads[i], NULL, TaskCode, (void*) &thread_args[i]);
+ }
+```
+
+Abschließend wird auf die Beendigung der Threads gewartet. Hier
+ist die Reihenfolge durch den Verlauf von `i` gegeben und es gibt
+nur eine Möglichkeit.
+
+```c
+ /* wait for all threads to complete */
+ for (i = 0; i < NUM_THREADS; ++i)
+ {
+  rc = pthread_join(threads[i], NULL);
+ }
+ exit(EXIT_SUCCESS);
+}
+```
+
+Man kann insgesamt also 15 verschiedene Fälle unterscheiden:
+
+Fall 1)
+
+```none
+In main: creating thread 1
+In main: creating thread 2
+In main: creating thread 3
+It's me, dude! I am number 1!
+It's me, dude! I am number 2!
+It's me, dude! I am number 3!
+```
+
+Fall 2)
+
+```none
+In main: creating thread 1
+In main: creating thread 2
+In main: creating thread 3
+It's me, dude! I am number 1!
+It's me, dude! I am number 3!
+It's me, dude! I am number 2!
+```
+
+Fall 3)
+
+```none
+In main: creating thread 1
+In main: creating thread 2
+In main: creating thread 3
+It's me, dude! I am number 2!
+It's me, dude! I am number 1!
+It's me, dude! I am number 3!
+```
+
+Fall 4)
+
+```none
+In main: creating thread 1
+In main: creating thread 2
+In main: creating thread 3
+It's me, dude! I am number 2!
+It's me, dude! I am number 3!
+It's me, dude! I am number 1!
+```
+
+Fall 5)
+
+```none
+In main: creating thread 1
+In main: creating thread 2
+In main: creating thread 3
+It's me, dude! I am number 3!
+It's me, dude! I am number 1!
+It's me, dude! I am number 2!
+```
+
+Fall 6)
+
+```none
+In main: creating thread 1
+In main: creating thread 2
+In main: creating thread 3
+It's me, dude! I am number 3!
+It's me, dude! I am number 2!
+It's me, dude! I am number 1!
+```
+
+Fall 7)
+
+```none
+In main: creating thread 1
+In main: creating thread 2
+It's me, dude! I am number 1!
+In main: creating thread 3
+It's me, dude! I am number 2!
+It's me, dude! I am number 3!
+```
+
+Fall 8)
+
+```none
+In main: creating thread 1
+In main: creating thread 2
+It's me, dude! I am number 1!
+In main: creating thread 3
+It's me, dude! I am number 3!
+It's me, dude! I am number 2!
+```
+
+Fall 9)
+
+```none
+In main: creating thread 1
+In main: creating thread 2
+It's me, dude! I am number 1!
+It's me, dude! I am number 2!
+In main: creating thread 3
+It's me, dude! I am number 3!
+```
+
+Fall 10)
+
+```none
+In main: creating thread 1
+In main: creating thread 2
+It's me, dude! I am number 2!
+In main: creating thread 3
+It's me, dude! I am number 1!
+It's me, dude! I am number 3!
+```
+
+Fall 11)
+
+```none
+In main: creating thread 1
+In main: creating thread 2
+It's me, dude! I am number 2!
+In main: creating thread 3
+It's me, dude! I am number 3!
+It's me, dude! I am number 1!
+```
+
+Fall 12)
+
+```none
+In main: creating thread 1
+In main: creating thread 2
+It's me, dude! I am number 2!
+It's me, dude! I am number 1!
+In main: creating thread 3
+It's me, dude! I am number 3!
+```
+
+Fall 13)
+
+```none
+In main: creating thread 1
+It's me, dude! I am number 1!
+In main: creating thread 2
+In main: creating thread 3
+It's me, dude! I am number 2!
+It's me, dude! I am number 3!
+```
+
+Fall 14)
+
+```none
+In main: creating thread 1
+It's me, dude! I am number 1!
+In main: creating thread 2
+In main: creating thread 3
+It's me, dude! I am number 3!
+It's me, dude! I am number 2!
+```
+
+Fall 15)
+
+```none
+In main: creating thread 1
+It's me, dude! I am number 1!
+In main: creating thread 2
+It's me, dude! I am number 2!
+In main: creating thread 3
+It's me, dude! I am number 3!
+```
 
 ## Aufgabe 4
 
