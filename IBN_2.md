@@ -46,20 +46,12 @@ $ ps T -H
   Prozess wieder im Hintergrund (oder Vordergrund) starten und er
   wird fortgesetzt.
 
-- blabla
-
-`2184`: Der Wurzelprozess die Bash-Shell, in der die weiteren Prozesse gestartet werden. Befindet sich im unterbrechbaren Schlafmodus (`S`, wartet auf Ereignisse). `s` identifiziert sie als Sitzungsleiter.
-
-`2914`: Abgelöster `./test`-Prozess (`$ ./test &`).
-
-`2916`: Abgelöster `./test`-Prozess.
-
-`2915` & `2917`: Gegabelter `$ ./test` defunktionaler ("zombie") Prozess, beendet, aber nicht von den Eltern geerntet.
-
-```bash
+- ```bash
 $ ps -eH
    ...
-   2179 ?        00:00:07   terminal
+      1 ?        00:11:07 systemd
+   ...
+   2179 ?        00:00:07   xterm
    2184 pts/0    00:00:00     bash
    2914 pts/0    00:00:00       test
    2915 pts/0    00:00:00         test <defunct>
@@ -67,7 +59,16 @@ $ ps -eH
    2917 pts/0    00:00:00         test <defunct>
    ...
 ```
-Meine Sitzung findet in Tiefe null statt.
+
+  Bei `...` wurden irrelevante Abschnitte entfernt. Man sieht den
+  Wurzelprozess `systemd` mit PID 1 auf der nullten Ebene. Danach
+  folgt der Terminal-Emulator `xterm` auf der ersten Ebene. Die
+  `bash` Sitzung mit der bekannten PID 2184 vom vorherigen Aufruf
+  von `ps` ist die zweite Ebene. Unsere Aufrufe des Test-Programms
+  `test` finden folglich in der dritten Ebene statt. Die geforkten
+  Kindprozesse in der vierten Ebene.
+
+- `man ps`
 
 ## Aufgabe 2
 
