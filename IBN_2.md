@@ -4,7 +4,7 @@ Betriebssysteme und Netzwerke (IBN)
 
 ## Aufgabe 1
 
-```bash
+- ```bash
 $ ./test &
 [1] 2914
 $ ./test
@@ -19,6 +19,34 @@ $ ps T -H
    2917 pts/0    Z      0:00     [test] <defunct>
    2921 pts/0    R+     0:00   ps T -H
 ```
+
+  Wir sehen die von uns gestartete bash Shell als PID 2184.
+
+  Zunächst starten wir mit `./test &` das Programm im Hintergrund
+  und erhalten den Prozess mit PID 2914. Das Programm forkt und
+  wir erhalten einen Kindprozess mit PID 2915. Der Elternprozess
+  behält seine PID.
+
+  Im Elternprozess wird das `sleep` ausgeführt und der Prozess ist
+  daher für die nächsten 1000 Sekunden im Status `S` für `interruptible
+  sleep (waiting for an event to complete)`. Der Kindprozess hingegen
+  beendet direkt mit `exit(0)` und wird daher zum Zombie mit Status
+  `Z` für `defunct ("zombie") process, terminated but not reaped by its
+  parent`. Der Elternprozess kann nicht ernten ("not reaped") da er ja
+  gerade schläft.
+
+  Der zweite Aufruf mit `./test` ist der Prozess mit PID 2916. Sofort
+  wird - wie schon vorher - ein Kindprozess gestartet mit PID 2917.
+  Dieser Kindprozess beendet - ebenfalls wie schon vorher - sofort
+  wieder und ist im Zombie-Status. Den Elternprozess unterbrechen wir
+  mit `CTRL+Z` durch ein `SIGSTOP` Signal. Der Prozess befindet sich
+  daher im Status `T` für `stopped by job control signal`. (Wir haben
+  `CTRL+Z` nicht schnell genug gedrückt, um den fork zu verhindern.)
+  Mit dem Befehl `bg` (oder `fg`) könnte man den zuletzt gestoppten
+  Prozess wieder im Hintergrund (oder Vordergrund) starten und er
+  wird fortgesetzt.
+
+- blabla
 
 `2184`: Der Wurzelprozess die Bash-Shell, in der die weiteren Prozesse gestartet werden. Befindet sich im unterbrechbaren Schlafmodus (`S`, wartet auf Ereignisse). `s` identifiziert sie als Sitzungsleiter.
 
@@ -74,3 +102,4 @@ c) Siehe a) und b)
 ## Aufgabe 7
 
 TODO
+
