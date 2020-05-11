@@ -81,8 +81,17 @@ $ ps -eH
 
 ## Aufgabe 2
 
-Ein Prozess ist die konkrete Instanziierung eines Programms zur Laufzeit. Er wird vom Betriebssystem kontrolliert, welches ihn durch bestimmte Aktionen in verschiedene Zustände setzten kann. Die Prozesse werden vom Prozess-Scheduler des Betriebssystems verwaltet. Dieser kann einen Prozess entweder so lange laufen lassen, bis er endet oder blockiert, oder dafür sorgen, dass nach jeweils einer kurzen Zeitdauer der gerade ablaufenden Prozess unterbrochen wird, und der Scheduler so zwischen verschiedenen aktiven Prozessen hin und her wechseln kann.
-Eine nebenläufige Ausführungseinheit innerhalb eines Prozesses wird Thread genannt. Meistens werden nicht Prozesse nebenläufig ausgeführt, sondern nur dessen Threads.
+Ein Prozess ist die konkrete Instanziierung eines Programms zur
+Laufzeit. Er wird vom Betriebssystem kontrolliert, welches ihn durch
+bestimmte Aktionen in verschiedene Zustände setzten kann. Die
+Prozesse werden vom Prozess-Scheduler des Betriebssystems verwaltet.
+Dieser kann einen Prozess entweder so lange laufen lassen, bis er
+endet oder blockiert, oder dafür sorgen, dass nach jeweils einer
+kurzen Zeitdauer der gerade ablaufenden Prozess unterbrochen wird,
+und der Scheduler so zwischen verschiedenen aktiven Prozessen
+hin und her wechseln kann. Eine nebenläufige Ausführungseinheit
+innerhalb eines Prozesses wird Thread genannt. Meistens werden
+nicht Prozesse nebenläufig ausgeführt, sondern nur dessen Threads.
 
 ## Aufgabe 3
 
@@ -305,9 +314,25 @@ In main: creating thread 3
 It's me, dude! I am number 3!
 ```
 
-## Aufgabe 4
+Ausgabe A und B sind beides mögliche Ausgaben des auf den Folien
+vorgestellten Codes. Die Ausführungsreihenfolge der Threads ist
+nicht garantiert gleich der Erstellungsreihenfolge. Allerdings
+ist das Programm so ausgelegt, dass die Daten für einen Thread
+einzeln gespeichert und übergeben werden. Es werden also keine
+Daten übersprungen und alle Nummern genau ein Mal angezeigt.
 
-TODO
+Ausgabe C hätte passieren können, wenn die Daten (Argumente) für die
+einzelnen Threads nicht separat gespeichert werden. Falls also
+`thread_args` kein Array wäre, dessen einzelne Elemente
+(beziehungsweise genauer gesagt die Adresse der einzelnen Elemente)
+an den Thread übergeben werden, sondern eine simple einzelne
+Variable vom Typ Integer - denn dann könnte sich der Wert von
+`thread_args` bereits geändert haben bis `printf` innerhalb der
+Thread-Routine ausgeführt wird. In
+der Folge können mehrere Thread-Routinen denselben Wert lesen und
+ausgeben - genau wie in Ausgabe C zu sehen.
+
+## Aufgabe 4
 
 ## Aufgabe 5
 
@@ -317,8 +342,6 @@ b) Die kritische Sektion wäre zwar geschützt, allerdings wird die Schließung 
 
 c) Siehe a) und b)
 
-## AUfgabe 6
+## Aufgabe 6
 
 ## Aufgabe 7
-
-TODO
