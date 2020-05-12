@@ -347,7 +347,9 @@ ausgeben - genau wie in Ausgabe C zu sehen.
 
 ## Aufgabe 4
 
-Siehe Python-(Pseudo-)Code:
+Siehe folgenden Python-(Pseudo-)Code:
+
+\lstinputlisting[language=Python,firstline=1,lastline=29]{IBN_02_a4.py}
 
 \newpage
 
