@@ -115,13 +115,13 @@ nicht Prozesse nebenläufig ausgeführt, sondern nur dessen Threads.
   bereits erstellten Threads dazwischenkommen, was man zum Beispiel
   am `printf` Befehl aus `TaskCode` auf der Konsole sieht.
 
-\lstinputlisting[language=C,firstline=20,lastline=25]{IBN_02_a2.c}
+\lstinputlisting[language=C,firstnumber=20,firstline=20,lastline=25]{IBN_02_a2.c}
 
 - Abschließend wird auf die Beendigung der Threads gewartet. Hier
   ist die Reihenfolge durch den Verlauf von `i` gegeben und es gibt
   nur eine Möglichkeit.
 
-\lstinputlisting[language=C,firstline=26]{IBN_02_a2.c}
+\lstinputlisting[language=C,firstnumber=26,firstline=26]{IBN_02_a2.c}
 
 - Man kann insgesamt also 15 verschiedene Fälle unterscheiden:
 
