@@ -97,10 +97,10 @@ nicht Prozesse nebenläufig ausgeführt, sondern nur dessen Threads.
 ## Aufgabe 3
 
 - Nur eine Möglichkeit der Ausführungsreihenfolge für den
-Anfangsteil, wenn Bibliotheken geladen werden und die Thread-Routine
-und in der `main` Funktion lokale Variablen definiert werden.
+  Anfangsteil, wenn Bibliotheken geladen werden und die Thread-Routine
+  und in der `main` Funktion lokale Variablen definiert werden.
 
-\begin{lstlisting}[language=C]
+\begin{lstlisting}[language=C,firstnumber=1]
 #include <stdlib.h>
 #include <stdio.h>
 #include <pthread.h>
@@ -122,27 +122,27 @@ int main(int argc, char* argv[])
  int rc, i;
 \end{lstlisting}
 
-Es folgt die Erstellung der Threads, wobei laut Aufgabenstellung
-angenommen wird, dass jede Iteration vollständig abläuft, also
-also atomic anzusehen ist. Nach Ablauf einer
-Iteration kann jedoch die Task-Routine eines
-bereits erstellten Threads dazwischenkommen, was man zum Beispiel
-am `printf` Befehl aus `TaskCode` auf der Konsole sieht.
+- Es folgt die Erstellung der Threads, wobei laut Aufgabenstellung
+  angenommen wird, dass jede Iteration vollständig abläuft, also
+  also atomic anzusehen ist. Nach Ablauf einer
+  Iteration kann jedoch die Task-Routine eines
+  bereits erstellten Threads dazwischenkommen, was man zum Beispiel
+  am `printf` Befehl aus `TaskCode` auf der Konsole sieht.
 
-```c
+\begin{lstlisting}[language=C,firstnumber=20]
  for (i = 0; i < NUM_THREADS; ++i)
  {
   thread_args[i] = i;
   printf("In main: creating thread %d\n", i);
   rc = pthread_create(&threads[i], NULL, TaskCode, (void*) &thread_args[i]);
  }
-```
+\end{lstlisting}
 
-Abschließend wird auf die Beendigung der Threads gewartet. Hier
-ist die Reihenfolge durch den Verlauf von `i` gegeben und es gibt
-nur eine Möglichkeit.
+- Abschließend wird auf die Beendigung der Threads gewartet. Hier
+  ist die Reihenfolge durch den Verlauf von `i` gegeben und es gibt
+  nur eine Möglichkeit.
 
-```c
+\begin{lstlisting}[language=C,firstnumber=26]
  /* wait for all threads to complete */
  for (i = 0; i < NUM_THREADS; ++i)
  {
@@ -150,9 +150,9 @@ nur eine Möglichkeit.
  }
  exit(EXIT_SUCCESS);
 }
-```
+\end{lstlisting}
 
-Man kann insgesamt also 15 verschiedene Fälle unterscheiden:
+- Man kann insgesamt also 15 verschiedene Fälle unterscheiden:
 
 Fall 1)
 
