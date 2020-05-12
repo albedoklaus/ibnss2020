@@ -102,7 +102,7 @@ Aufgabe 4
 Aufgabe 5
 ---------
 
-\lstinputlisting[language=bash]{IBN_1_a5.sh}
+\lstinputlisting[language=bash]{IBN_01_a5.sh}
 
 \newpage
 Aufgabe 6
