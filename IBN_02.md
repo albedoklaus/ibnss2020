@@ -106,27 +106,7 @@ nicht Prozesse nebenläufig ausgeführt, sondern nur dessen Threads.
   Anfangsteil, wenn Bibliotheken geladen werden und die Thread-Routine
   und in der `main` Funktion lokale Variablen definiert werden.
 
-\begin{lstlisting}[language=C,firstnumber=1]
-#include <stdlib.h>
-#include <stdio.h>
-#include <pthread.h>
-
-#define NUM_THREADS 3
-
-void* TaskCode(void* argument)
-{
- int tid;  
- tid = *((int*) argument);
- printf("It's me, dude! I am number %d!\n", tid);
- return NULL;
-}
-
-int main(int argc, char* argv[])
-{
- pthread_t threads[NUM_THREADS];
- int thread_args[NUM_THREADS];
- int rc, i;
-\end{lstlisting}
+\lstinputlisting[language=C,lastline=19]{IBN_02_a2.c}
 
 - Es folgt die Erstellung der Threads, wobei laut Aufgabenstellung
   angenommen wird, dass jede Iteration vollständig abläuft, also
@@ -135,28 +115,13 @@ int main(int argc, char* argv[])
   bereits erstellten Threads dazwischenkommen, was man zum Beispiel
   am `printf` Befehl aus `TaskCode` auf der Konsole sieht.
 
-\begin{lstlisting}[language=C,firstnumber=20]
- for (i = 0; i < NUM_THREADS; ++i)
- {
-  thread_args[i] = i;
-  printf("In main: creating thread %d\n", i);
-  rc = pthread_create(&threads[i], NULL, TaskCode, (void*) &thread_args[i]);
- }
-\end{lstlisting}
+\lstinputlisting[language=C,firstline=20,lastline=25]{IBN_02_a2.c}
 
 - Abschließend wird auf die Beendigung der Threads gewartet. Hier
   ist die Reihenfolge durch den Verlauf von `i` gegeben und es gibt
   nur eine Möglichkeit.
 
-\begin{lstlisting}[language=C,firstnumber=26]
- /* wait for all threads to complete */
- for (i = 0; i < NUM_THREADS; ++i)
- {
-  rc = pthread_join(threads[i], NULL);
- }
- exit(EXIT_SUCCESS);
-}
-\end{lstlisting}
+\lstinputlisting[language=C,firstline=26]{IBN_02_a2.c}
 
 - Man kann insgesamt also 15 verschiedene Fälle unterscheiden:
 
