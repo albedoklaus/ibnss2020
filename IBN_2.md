@@ -8,7 +8,7 @@ Betriebssysteme und Netzwerke (IBN)
 $ ./test &
 [1] 2914
 $ ./test
-STRG+Z
+^Z
 [2]+  Stopped                 ./test
 $ ps T -H
     PID TTY      STAT   TIME COMMAND
@@ -68,16 +68,17 @@ $ ps -eH
   `test` finden folglich in der dritten Ebene statt. Die geforkten
   Kindprozesse in der vierten Ebene.
 
-- In `man ps` finden wir:
+- In `man ps` finden wir folgende Beschreibungen für die uns
+  vorliegenden Prozessstatus:
 
-  - `S` Prozess schläft, wartet auf Ereignis und kann unterbrochen
+  - `S`: Prozess schläft, wartet auf Ereignis und kann unterbrochen
     werden
-  - `s` Dieser Prozess der Sitzungsführer der Shell-Sitzung
-  - `Z` Prozess ist terminiert aber vom Elternprozess noch nicht
+  - `s`: Dieser Prozess der Sitzungsführer der Shell-Sitzung
+  - `Z`: Prozess ist terminiert aber vom Elternprozess noch nicht
     geerntet
-  - `T` Prozess durch Kontrollsignal beendet
-  - `R` Prozess läuft gerade
-  - `+` Prozess wird im Vordergrund ausgeführt
+  - `T`: Prozess durch Kontrollsignal beendet
+  - `R`: Prozess läuft gerade
+  - `+`: Prozess wird im Vordergrund ausgeführt
 
 ## Aufgabe 2
 
@@ -95,9 +96,11 @@ nicht Prozesse nebenläufig ausgeführt, sondern nur dessen Threads.
 
 ## Aufgabe 3
 
-Nur eine Möglichkeit der Ausführung für den Anfangsteil:
+- Nur eine Möglichkeit der Ausführungsreihenfolge für den
+Anfangsteil, wenn Bibliotheken geladen werden und die Thread-Routine
+und in der `main` Funktion lokale Variablen definiert werden.
 
-```c
+\begin{lstlisting}[language=C]
 #include <stdlib.h>
 #include <stdio.h>
 #include <pthread.h>
@@ -117,12 +120,14 @@ int main(int argc, char* argv[])
  pthread_t threads[NUM_THREADS];
  int thread_args[NUM_THREADS];
  int rc, i;
-```
+\end{lstlisting}
 
 Es folgt die Erstellung der Threads, wobei laut Aufgabenstellung
-jede Iteration vollständig abläuft. Nach Ablauf einer
-Iteration kann jedoch der `printf` Befehl aus `TaskCode` eines
-bereits erstellten Threads dazwischenkommen.
+angenommen wird, dass jede Iteration vollständig abläuft, also
+also atomic anzusehen ist. Nach Ablauf einer
+Iteration kann jedoch die Task-Routine eines
+bereits erstellten Threads dazwischenkommen, was man zum Beispiel
+am `printf` Befehl aus `TaskCode` auf der Konsole sieht.
 
 ```c
  for (i = 0; i < NUM_THREADS; ++i)
