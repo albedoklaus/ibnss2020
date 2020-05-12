@@ -46,6 +46,8 @@ $ ps T -H
   Prozess wieder im Hintergrund (oder Vordergrund) starten und er
   wird fortgesetzt.
 
+\newpage
+
 - ```bash
 $ ps -eH
    ...
@@ -80,6 +82,8 @@ $ ps -eH
   - `R`: Prozess läuft gerade
   - `+`: Prozess wird im Vordergrund ausgeführt
 
+\newpage
+
 ## Aufgabe 2
 
 Ein Prozess ist die konkrete Instanziierung eines Programms zur
@@ -93,6 +97,8 @@ und der Scheduler so zwischen verschiedenen aktiven Prozessen
 hin und her wechseln kann. Eine nebenläufige Ausführungseinheit
 innerhalb eines Prozesses wird Thread genannt. Meistens werden
 nicht Prozesse nebenläufig ausgeführt, sondern nur dessen Threads.
+
+\newpage
 
 ## Aufgabe 3
 
@@ -337,16 +343,41 @@ Thread-Routine ausgeführt wird. In
 der Folge können mehrere Thread-Routinen denselben Wert lesen und
 ausgeben - genau wie in Ausgabe C zu sehen.
 
+\newpage
+
 ## Aufgabe 4
+
+\newpage
 
 ## Aufgabe 5
 
-a) Die kritische Section ist nicht geschützt, da das Signal vorher das Freizeichen gibt und erst nach der kritischen Sektion auf Warten setzt.
+a) Wenn `wait` und `signal` vertauscht werden, beginnt die Routine mit `signal`, `S` wird
+   über den Initialwert hinaus inkrementiert und es wartet keiner der Prozesse/Threads.
+   Folglich ist die kritische Section nicht geschützt und wird parallel ausgeführt.
+   Anschließend wird bei `wait` nicht gewartet wegen der vorherigen zusätzlichen
+   Inkrementierung von `S` und der Zyklus beginnt von vorne. Man kann also sagen, dass sich
+   die Routine so verhält, als wäre überhaupt kein Semaphor implementiert. Eine Ausnahme
+   könnte sein, wenn durch das zusätzliche Inkrementieren die Grenze des Datentyps von `S`
+   erreicht wird, siehe "Integer Overflow". Dann könnte der Wert in einen negativen Bereich
+   oder Null springen und es kommt möglicherweise zu einem Deadlock.
 
-b) Die kritische Sektion wäre zwar geschützt, allerdings wird die Schließung nicht mehr Freigegeben.
+b) Wird `signal` durch `wait` ersetzt, kommt es zu einem Deadlock, denn es gibt dann keine
+   Möglichkeit mehr `S` zu inkrementieren und andere Threads/Prozesse aus der Warteschlange
+   zu holen. Die bis dahin ausgeführten Befehle der critical section sind zwar
+   geschützt - passieren aber eben nur ein Mal.
 
-c) Siehe a) und b)
+c) - Wird der Aufruf von `wait` ausgelassen, dann wartet keiner der Prozesse/Threads und geht
+     sofort in die critical section über. Diese ist also nicht geschützt. Anschließend wird `S`
+     inkrementiert, was aber keine Rolle spielt, da sowieso kein `wait` und damit keine Abfrage
+     des Werts von `S` vorhanden ist. Der Code verhält sich so, als wäre kein Semaphor implementiert.
+   - Wird der Aufruf von `signal` ausgelassen, wird `S` nicht mehr inkrementiert. Dieser Fall
+     verhält sich identisch zu b), da es keine Rolle spielt, ob nun das `wait` ausgelassen wird
+     oder direkt der nächste Befehl im nächsten Zyklus ist.
+
+\newpage
 
 ## Aufgabe 6
+
+\newpage
 
 ## Aufgabe 7
