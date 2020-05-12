@@ -380,7 +380,8 @@ c) - Wird der Aufruf von `wait` ausgelassen, dann wartet keiner der Prozesse/Thr
 
 ## Aufgabe 6
 
-
+a) Man muss die Bedingungsvariablen selbst verwalten. Bei einem Semaphor enthält der Semaphor selbst den Zähler. Im Gegensatz zu einem Lock kann der Semaphor sowohl für Mutex (mutual exclusion) als auch Synchronisierung verwendet werden. Bedingungsvariable merkt sich das Signal nicht, es kann also sein, dass ein Thread "für immer" wartet. Die Lösung ist eine Zustands-/Bedingungsvariable, die "done" speichert und so der Zustand (das Signal) gemerkt werden kann.
+b) Sonst kann es zu "Naked notify" kommen - einer Race condition.
 
 \newpage
 
@@ -389,4 +390,4 @@ c) - Wird der Aufruf von `wait` ausgelassen, dann wartet keiner der Prozesse/Thr
 - Es wird unterschieden zwischen "Long term memory" vs "working memory". Beim "working memory" geht es darum, was man im Moment gerade im Gehirn verarbeitet wird. Es kann etwa 4 "chunks of information" enthalten. Informationen können gruppiert werden, sodass die Anzahl an Informationen größer erscheinen kann. Das "long term memory" ist wie ein Lagerhaus, wo sehr, sehr viel Platz zur Verfügung steht und Artikel (Informationen) an verschiedenen Stellen abgelegt werden können. Das kann allerdings auch zu Durcheinander führen und man muss den Weg durch das Lagerhaus trainieren um schnell und effektiv zur Information zu gelangen.
 - Das "working memory" verhält sich bezüglich Größe, Geschwindigkeit und Flüchtigkeit etwa wie ein CPU-Register oder CPU-Cache, wohingegen das "long term memory" sich eher wie ein Speichermedium wie Festplatte oder SSD verhält. (RAM wäre irgendwo dazwischen, denn Information im Arbeitsspeicher kann heute in großen Menge abgelegt werden - mehrere Gigabytes - geht dann aber beim Ausschalten des Computers verloren.)
 - Die Einheiten werden "Chunks of information" genannt. Nur etwa 4 Einheiten im "working memory". (Informationen können gruppiert werden, sodass die Anzahl an Informationen größer erscheinen kann.) Im "long term memory" Milliaren von Einheiten.
-- "Spaced Repetition": Informationen sollen vom "working memory" ins "long term memory" übertragen und dazu in immer größer werdenden Abständen wiederholt werden um den "Pfad zur Speicherstelle" im "long term memory" zu trainieren. Es bringt dabei nichts, viele Wiederholungen in einen kurzen Zeitraum zu packen - die zeitlichen Abstände sind wichtig für die Effizienz.
+- Wenn die Informationen im "Lagerhaus" gut zugänglich sind (also trainiert wurden) können sie sehr schnell ins "working memory" übertragen werden. Die Informationen können aber auch versteckt sein und müssen dann öfter "aufgerufen" werden um den Pfad zur Information zu lernen. Eine vorgestellte Methode ist "Spaced Repetition": Informationen sollen vom "working memory" ins "long term memory" übertragen und dazu in immer größer werdenden Abständen wiederholt werden um den "Pfad zur Speicherstelle" im "long term memory" zu trainieren. Es bringt dabei nichts, viele Wiederholungen in einen kurzen Zeitraum zu packen - die zeitlichen Abstände sind wichtig für die Effizienz.
