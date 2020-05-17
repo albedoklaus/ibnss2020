@@ -8,6 +8,10 @@ Für Version `v5.7-rc5` Zeile 632 in `include/linux/sched.h`: https://github.com
 
 Die Definition ist in Zeile 1307 beendet.
 
+\lstinputlisting[language=Python]{IBN_03_1count.py}
+
+Wir schätzen den Speicherbedarf auf `268 * 8 = 2144` Bytes.
+
 \newpage
 
 ## Aufgabe 2
