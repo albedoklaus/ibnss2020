@@ -37,33 +37,9 @@ Die Anzahl der Prozesse nimmt also mindestens expotentiell zu und verbrauchen CP
 
 ## Aufgabe 5
 
+Siehe die Kommentare für die Erklärungen der Befehle:
+
 \lstinputlisting[language=C]{IBN_03_a5.c}
-
-Output:
-
-```bash
- Kindprozess: 2
- Elternprozess: 1
- Kindprozess: 3
- Kindprozess: 5
- Kindprozess: 6
- Elternprozess: 4
- Kindprozess: 7
- Elternprozess: 8
- Kindprozess: 9
- Kindprozess: 11
- [...]
- Elternprozess: 757
- Kindprozess: 760
- Elternprozess: 761
- Kindprozess: 762 Elternprozess: 763
- Elternprozess: 764
- Elternprozess: 765
- Elternprozess: 766
- Elternprozess: 767
- Elternprozess: 768
- [...]
-```
 
 Es fällt auf, dass manche Zahlen doppelt vorkommen, andere wiederum gar nicht:
 
@@ -96,29 +72,32 @@ werden.
 
 ## Aufgabe 6
 
-a) Mehr Schreibarbeit.
+a)
+
+- Mehr Schreibarbeit
+- Pipe ist so lange offen, wie das System läuft (das kann unerwünscht sein)
 
 b) Beispiel aus der Vorlesung:
 
-```bash
+\begin{lstlisting}[language=bash]
 ls –R | grep –ci '\.jpg$'
-```
+\end{lstlisting}
 
 Umgeschrieben:
 
-```bash
+\begin{lstlisting}[language=bash]
 mkfifo mypipe
 ls –R  > mypipe &
 grep –ci '\.jpg$' < mypipe
-```
+\end{lstlisting}
 
 c) Eigenes Beispiel:
 
-```bash
+\begin{lstlisting}[language=bash]
 mkfifo mypipe
 ls > mypipe &
-logfile << mypipe &
+logfile < mypipe &
 rm -drf ./ &
 ls > mypipe &
 logfile < mypipe
-```
+\end{lstlisting}
