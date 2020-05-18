@@ -17,13 +17,17 @@ int main() {
   if (fork())
     for (i=0; i<20; i++){
       *shared_mem+=1;
-      printf("\n Elternprozess: %i", *shared_mem);
+      sleep(1);
+      printf("Elternprozess: %i\n", *shared_mem);
+      fflush(stdout);
       sleep(2);
     }
   else
     for (i=0; i<20;i++){
       *shared_mem+=1;
-      printf("\n Kindprozess: %i", *shared_mem);
+      sleep(1);
+      printf("Kindprozess: %i\n", *shared_mem);
+      fflush(stdout);
       rnd=rand();
       sleep(rnd%3);
     }
