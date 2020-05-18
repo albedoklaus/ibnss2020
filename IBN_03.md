@@ -16,14 +16,14 @@ Wir schätzen den Speicherbedarf auf `268 * 8 = 2144` Bytes.
 
 ## Aufgabe 2
 
-Eine *fork-bombe* ist ein Programm welches rekursiv Kopien seiner selbst start. Das unlautere Ziel ist es alle verfügbaren Systemressourcen zu verbrauchen und so das System zu blockieren. Dazu kann z.B. der Systemcall `fork` genutzt werden, daher der Name.
+Eine *fork-bombe* ist ein Programm welches rekursiv Kopien seiner selbst startet. Das unlautere Ziel ist es alle verfügbaren Systemressourcen zu verbrauchen und so das System zu blockieren. Dazu kann z.B. der Systemcall `fork` genutzt werden, daher der Name.
 
 Zutaten:
 
 - Programm ruft sich selbst rekursiv mindestens zwei mal in einem Aufruf auf( z.B. mit fork)
 - Dann wartet es bis es beendet wurde (was nicht passiert.)
 
-Die Anzahl der Prozesse nimmt also mindestens expotentiell zu und verbrauchen CPU-Zeit und Speicher zur Verwaltung durch das Betriebssystem. Die wahrscheinlich als erste ausgeschöpfte Ressource ist die Rechenzeit.
+Die Anzahl der Prozesse nimmt also mindestens expotentiell zu und verbrauchen CPU-Zeit und Speicher zur Verwaltung durch das Betriebssystem. Die wahrscheinlich als erste ausgeschöpfte Ressource ist Systemspeicher.
 
 \newpage
 
