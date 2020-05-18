@@ -94,3 +94,30 @@ Erklärung:
 \newpage
 
 ## Aufgabe 6
+
+a) Mehr Schreibarbeit.
+
+b) Beispiel aus der Vorlesung:
+
+```bash
+ls –R | grep –ci '\.jpg$'
+```
+
+Umgeschrieben:
+
+```bash
+mkfifo mypipe
+ls –R  > mypipe &
+grep –ci '\.jpg$' < mypipe
+```
+
+c) Eigenes Beispiel:
+
+```bash
+mkfifo mypipe
+ls > mypipe &
+logfile << mypipe &
+rm -drf ./ &
+ls > mypipe &
+logfile << mypipe
+```
