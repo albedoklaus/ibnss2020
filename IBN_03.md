@@ -39,7 +39,7 @@ Die Anzahl der Prozesse nimmt also mindestens expotentiell zu und verbrauchen CP
 
 \lstinputlisting[language=C]{IBN_03_a5.c}
 
-Merkwürdiger Output:
+Output:
 
 ```bash
  Kindprozess: 2
@@ -65,7 +65,7 @@ Merkwürdiger Output:
  [...]
 ```
 
-Erklärung:
+Merkwürdig ist, dass
 
 \newpage
 

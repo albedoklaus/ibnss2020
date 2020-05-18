@@ -15,13 +15,13 @@ int main() {
 
   *shared_mem = 0;
   if (fork())
-    for (i=0; i<500; i++){
+    for (i=0; i<20; i++){
       *shared_mem+=1;
       printf("\n Elternprozess: %i", *shared_mem);
       sleep(2);
     }
   else
-    for (i=0; i<500;i++){
+    for (i=0; i<20;i++){
       *shared_mem+=1;
       printf("\n Kindprozess: %i", *shared_mem);
       rnd=rand();
