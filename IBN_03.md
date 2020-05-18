@@ -29,6 +29,8 @@ Die Anzahl der Prozesse nimmt also mindestens expotentiell zu und verbrauchen CP
 
 ## Aufgabe 3
 
+\lstinputlisting{IBN_03_a3.pseudocode}
+
 \newpage
 
 ## Aufgabe 4
@@ -45,7 +47,7 @@ Es fällt auf, dass manche Zahlen doppelt vorkommen, andere wiederum gar nicht:
 
 \begin{lstlisting}
 $ gcc IBN_03_a5.c && ./a.out | awk '{print $2}' | sort | uniq -cd
-      2 
+      2
       2 531
       2 632
       2 655
