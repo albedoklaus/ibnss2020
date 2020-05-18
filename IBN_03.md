@@ -65,7 +65,32 @@ Output:
  [...]
 ```
 
-Merkwürdig ist, dass
+Es fällt auf, dass manche Zahlen doppelt vorkommen, andere wiederum gar nicht:
+
+\begin{lstlisting}
+$ gcc IBN_03_a5.c && ./a.out | awk '{print $2}' | sort | uniq -cd
+      2 
+      2 531
+      2 632
+      2 655
+      2 658
+      2 659
+      2 662
+      2 671
+      2 734
+      2 735
+      2 736
+      2 827
+      2 926
+\end{lstlisting}
+
+Dies liegt daran, dass zwischen dem Inkrementieren von `shared_mem` und
+dem Ausgeben von `shared_mem` ein Prozesswechsel stattfinden kann. Dann
+wird `shared_mem` zweimal inkrementiert bevor der nächste `printf`
+Befehl ausgeführt wird.
+
+Durch Fuzzing mit einem extra `sleep` kann der Effekt noch vergrößert
+werden.
 
 \newpage
 
