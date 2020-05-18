@@ -29,7 +29,7 @@ Die Anzahl der Prozesse nimmt also mindestens expotentiell zu und verbrauchen CP
 
 ## Aufgabe 3
 
-\lstinputlisting{IBN_03_a3.pseudocode}
+\lstinputlisting[language=C]{IBN_03_a3.pseudocode}
 
 \newpage
 
@@ -39,13 +39,13 @@ a)
 
 Der aktualisierte Code:
 
-\lstinputlisting{IBN_03_pc2.c}
+\lstinputlisting[language=C]{IBN_03_pc2.c}
 
 b)
 
 Die Zeit wurde mit folgendem Schnippel gemessen:
 
-\lstinputlisting{IBN_03_a4_zeitmesser.py}
+\lstinputlisting[language=Python]{IBN_03_a4_zeitmesser.py}
 
 Die Ausgabe:
 
