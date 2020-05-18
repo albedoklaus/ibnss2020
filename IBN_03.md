@@ -52,36 +52,17 @@ Merkwürdiger Output:
  Elternprozess: 8
  Kindprozess: 9
  Kindprozess: 11
- Kindprozess: 12
- Kindprozess: 13
- Elternprozess: 10
- Kindprozess: 14
- Elternprozess: 15
- Kindprozess: 16
- Kindprozess: 18
- Elternprozess: 17
- Kindprozess: 19
- Elternprozess: 20
- Kindprozess: 21
- Elternprozess: 22
- Kindprozess: 23
- Kindprozess: 25
- Kindprozess: 26
- Kindprozess: 27
- Elternprozess: 24
- Kindprozess: 28
- Kindprozess: 30
- Elternprozess: 29
- Kindprozess: 31
- Elternprozess: 32
- Kindprozess: 33
- Kindprozess: 35
- Kindprozess: 36
- Elternprozess: 34
- Kindprozess: 37
- Elternprozess: 38
- Kindprozess: 39
-[...]
+ [...]
+ Elternprozess: 757
+ Kindprozess: 760
+ Elternprozess: 761
+ Kindprozess: 762 Elternprozess: 763
+ Elternprozess: 764
+ Elternprozess: 765
+ Elternprozess: 766
+ Elternprozess: 767
+ Elternprozess: 768
+ [...]
 ```
 
 Erklärung:
