@@ -35,6 +35,24 @@ Die Anzahl der Prozesse nimmt also mindestens expotentiell zu und verbrauchen CP
 
 ## Aufgabe 4
 
+a)
+
+Der aktualisierte Code:
+
+\lstinputlisting{IBN_03_pc2.c}
+
+b)
+
+Die Zeit wurde mit folgendem Schnippel gemessen:
+
+\lstinputlisting{IBN_03_a4_zeitmesser.py}
+
+Die Ausgabe:
+
+\begin{lstlisting}
+./pc 2.4206025123596193
+./pc2 2.409065341949463
+\end{lstlisting}
 \newpage
 
 ## Aufgabe 5

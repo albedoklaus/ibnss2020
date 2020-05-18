@@ -20,7 +20,7 @@ Semaphore::V() {
     while (TestAndSet(*guard))
         ;
     if anyone on wait queue {
-	Swap(boolean *value, boolean *guard)
+        Swap(boolean *value, boolean *guard)
         // Take a waiting thread off wait queue and put it at the front of the ready queue;
     } else {
         value = value + 1;
