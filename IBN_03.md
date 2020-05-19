@@ -57,6 +57,14 @@ Die Ausgabe:
 ./pc 2.4206025123596193
 ./pc2 2.409065341949463
 \end{lstlisting}
+
+Unsere Optimierung sorgt also für eine deutlich messbare schnellere
+Laufzeit des Programms. (Der Hauptteil der Laufzeit fällt natürlich
+auf die Berechnung der Fibonacci-Zahlen und ist daher nicht von der
+Optimierung betroffen.) Übeträgt man das Producer-Consumer-Problem
+auf einen größeren Maßstab, wird klar, dass dieser Laufzeitgewinn
+viel ausmachen kann.
+
 \newpage
 
 ## Aufgabe 5
