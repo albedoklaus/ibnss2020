@@ -4,7 +4,9 @@ Betriebssysteme und Netzwerke (IBN)
 
 ## Aufgabe 1
 
-Für Version `v5.7-rc5` Zeile 632 in `include/linux/sched.h`: https://github.com/torvalds/linux/blob/v5.7-rc5/include/linux/sched.h#L632
+Für Version `v5.7-rc5` Zeile 632 in `include/linux/sched.h`:
+
+https://github.com/torvalds/linux/blob/v5.7-rc5/include/linux/sched.h#L632
 
 Die Definition ist in Zeile 1307 beendet.
 
@@ -41,6 +43,8 @@ Der aktualisierte Code:
 
 \lstinputlisting[language=C]{IBN_03_pc2.c}
 
+\newpage
+
 b)
 
 Die Zeit wurde mit folgendem Schnippel gemessen:
@@ -57,7 +61,7 @@ Die Ausgabe:
 
 ## Aufgabe 5
 
-Siehe die Kommentare für die Erklärungen der Befehle:
+Die Erklärungen der Befehle finden sich in den Kommentaren:
 
 \lstinputlisting[language=C]{IBN_03_a5.c}
 
