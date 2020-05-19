@@ -9,8 +9,8 @@
 
 
 pthread_mutex_t queue_lock;
-pthread_cond_t cond;
-pthread_cond_t cond1337;
+pthread_cond_t cond_prod;
+pthread_cond_t cond_cons;
 int queue_length;
 list_t buffer;
 
@@ -64,10 +64,10 @@ static void *consumer_func(void *args)
         while(! (get_size(&buffer) > 0) ) {
             if (production_done) {
               pthread_mutex_unlock(&queue_lock);
-              pthread_cond_broadcast(&cond1337);
+              pthread_cond_broadcast(&cond_cons);
               return NULL;
             }
-            pthread_cond_wait(&cond1337, &queue_lock);
+            pthread_cond_wait(&cond_cons, &queue_lock);
         }
 
         /* Entnehme eine Aufgabe */
@@ -78,7 +78,7 @@ static void *consumer_func(void *args)
 
         pthread_mutex_unlock(&queue_lock);
 
-        pthread_cond_signal(&cond);
+        pthread_cond_signal(&cond_prod);
 
         if( elem != NULL ) {
             fib( elem->data );
@@ -112,7 +112,7 @@ static void *producer_func(void *args)
         pthread_mutex_lock(&queue_lock);
 
         while( ! (get_size(&buffer) < MAX_QUEUE_LENGTH) ) {
-          pthread_cond_wait(&cond, &queue_lock);
+          pthread_cond_wait(&cond_prod, &queue_lock);
         }
 
         /* Erzeuge eine Aufgabe */
@@ -128,7 +128,7 @@ static void *producer_func(void *args)
 
         pthread_mutex_unlock(&queue_lock);
 
-        pthread_cond_broadcast(&cond1337);
+        pthread_cond_broadcast(&cond_cons);
 
         if( done ) {
             break;
