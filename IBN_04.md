@@ -8,6 +8,7 @@ a) `files_struct` enthält Informationen zu allen Dateien, die ein Prozess verwe
 Heutiges System: Maximale Anzahl offener Dateien: 8192, aber maximal 1024 pro Prozess bzw. pro User. Die Gesamtanzahl kann im `/proc/sys/fs/file-max` angepasst werden. Root kann per »ulimit« den Wert erhöhen.\footnote{https://www.nextop.de/linuxfibel/limits.htm\#datei}
 
 b)
+
 \begin{lstlisting}[language=C,firstnumber=912]
 	/* Open file information: */
 	struct files_struct		*files;
