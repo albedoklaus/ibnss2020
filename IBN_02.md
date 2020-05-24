@@ -1,6 +1,6 @@
-# Betriebssysteme und Netzwerke (IBN)
+Betriebssysteme und Netzwerke (IBN)
 
-## Übungsblatt 2
+# Übungsblatt 2
 
 ## Aufgabe 1
 
@@ -339,8 +339,7 @@ c) - Wird der Aufruf von `wait` ausgelassen, dann wartet keiner der Prozesse/Thr
      sofort in die critical section über. Diese ist also nicht geschützt. Anschließend wird `S`
      inkrementiert, was aber keine Rolle spielt, da sowieso kein `wait` und damit keine Abfrage
      des Werts von `S` vorhanden ist. Der Code verhält sich so, als wäre kein Semaphor implementiert.
-
-- Wird der Aufruf von `signal` ausgelassen, wird `S` nicht mehr inkrementiert. Dieser Fall
+   - Wird der Aufruf von `signal` ausgelassen, wird `S` nicht mehr inkrementiert. Dieser Fall
      verhält sich identisch zu b), da es keine Rolle spielt, ob nun `signal` ausgelassen wird
      oder durch `wait` ersetzt wird, was direkt der nächste Befehl im nächsten Zyklus wäre.
 
