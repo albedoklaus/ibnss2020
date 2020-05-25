@@ -39,6 +39,6 @@ Encrypted: Mjqqt%Htwtsf%7575&
 
 a) Matrikelnummer entspricht Seitennummer, Wohnadresse entspricht Rahmennummer, Verzeichnis entspricht Seitentabelle. Das Offset in diesem Fall wäre die Zimmernummer im Wohnheim. (Wir nehmen an, dass wir Matrikelnummern - und damit anteilmäßig auch deren Offset - passend zu den Zimmernummer vergeben können, was in der Realität nicht der Fall ist.)
 
-b) Es gibt etwa 4800 / 65 = 73,8 Studierende pro Wohnheim. Für unsere Analogie verwenden wir daher 4-stellige Matrikelnummern: Die ersten beiden Ziffern der Matrikelnummer ($p \in [00, 99]$) beschreiben die Wohnheimadresse ($f$), die jeweils letzten beiden Ziffern beschreiben die Zimmernummer (Offset). Wir können also alles von 0000 bis 9999 darstellen, was 10000 Einträgen entspricht. Der Anteil an relevanten Einträgen ist also 4800 / 10000 = 48%.
+b) Es gibt etwa 4800 / 65 = 73,8 Studierende pro Wohnheim. Für unsere Analogie verwenden wir daher 4-stellige Matrikelnummern: Die ersten beiden Ziffern der Matrikelnummer ($p \in [00, 99]$) beschreiben die Wohnheimadresse ($f$), die jeweils letzten beiden Ziffern beschreiben die Zimmernummer (Offset). Wir können also alles von 0000 bis 9999 darstellen, was 10000 Einträgen entspricht. Der Anteil an relevanten Einträgen ist also $\frac{4800}{10000} = 48\%$.
 
-c) Mit einer invertierten Seitentabelle indizieren wir nur Studenten, die auch ein Zimmer belegen. Das Verzeichnis wäre also maximal 65 Einträge lang. Die Übersetzung wäre somit $\frac{64}{99}\cdot100 \approx 64.65%$ effizienter.
+c) Mit einer invertierten Seitentabelle indizieren wir nur Matrikelnummern, die auch einem Zimmer zugeordnet sind. Das Verzeichnis wäre also maximal 65 Einträge lang. Die Übersetzung wäre somit $\frac{100}{65} \approx 1.5$ mal effizienter.
