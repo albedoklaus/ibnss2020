@@ -39,9 +39,11 @@ b)
 
 ## Aufgabe 4
 
-a) - Mindestgröße: Adressraum - Offset + mind. 4 Bits Seitenattribute: $26 - 12 + 4 = 18$ Bit. Da Einträge immer ganze Bytes sind also $\approx 24$ Bit $=3$ Byte.
+a) 
 
-- Anzahl Einträge: Adressraum - Seitengröße: $2^26 - 2^10 = 2^16 = 65536$.
+- Mindestgröße: Adressraum - Offset + mind. 4 Bits Seitenattribute: $26 - 12 + 4 = 18$ Bit. Da Einträge immer ganze Bytes sind also $\approx 24$ Bit $=3$ Byte.
+
+- Anzahl Einträge: Adressraum - Seitengröße: $2^{26} - 2^{10} = 2^{16} = 65536$.
 
 - Mindestgröße der Seitentabelle: $3 * 65536 = 192$ kB.
 
