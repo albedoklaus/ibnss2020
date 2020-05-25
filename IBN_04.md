@@ -33,6 +33,8 @@ Encrypted: Mjqqt%Htwtsf%7575&
 
 ## Aufgabe 3
 
+a) Die Fragmentierung heißt "Huge Page Fragmentation". Sie tritt auf, wenn eine Page nicht ans Betriebssystem zurückgegeben werden kann, da sie durch ein long-lived object benutzt wird.
+
 ## Aufgabe 4
 
 a) Anzahl Einträge: $2^26 - 2^10 = 2^16 = 65536$ Einträge.
