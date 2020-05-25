@@ -112,15 +112,15 @@ a)
 b) Beispiel aus der Vorlesung:
 
 \begin{lstlisting}[language=bash]
-ls –R | grep –ci '\.jpg$'
+ls -R | grep -ci '\.jpg$'
 \end{lstlisting}
 
 Umgeschrieben:
 
 \begin{lstlisting}[language=bash]
 mkfifo mypipe
-ls –R  > mypipe &
-grep –ci '\.jpg$' < mypipe
+ls -R  > mypipe &
+grep -ci '\.jpg$' < mypipe
 \end{lstlisting}
 
 c) Eigenes Beispiel:
