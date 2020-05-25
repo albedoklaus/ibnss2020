@@ -58,8 +58,8 @@ Analog zu Blatt 1:
 |                      | Wahrscheinlichkeit                                            |
 | -------------------- | ------------------------------------------------------------- |
 | Page hit             | $\frac{65536} {\frac{2^{26}}{8}} = 0.0078125 \approx 0.78 \%$ |
-| Page miss TLB hit    | $\frac{64}{\frac{2^{26}}{8}} = 9.5367431640625e-07$           |
-| Page miss TLB Miss   | $\approx 99.22 \%$                                            |
+| TLB hit              | $\frac{64}{\frac{2^{26}}{8}} = 9.5367431640625e-07$           |
+| Page miss TLB miss   | $\approx 99.22 \%$                                            |
 
 Erwartete Zugriffszeit:
 
