@@ -1,67 +1,65 @@
-#include <ctype.h>
 #include <sys/wait.h>
 #include <sys/types.h>
-#include <unistd.h>
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 
-#define MAX_INPUT 1024
+#define BUFSIZE 1024
 
 int main(void) {
 
     int fd[2];
     int n;
     int i;
-    pid_t pid;
-    char input[MAX_INPUT];
-    char shift_value = 2;
+
+    pid_t cpid;
+
+    char buf[BUFSIZE];
+    char lower_bound = 32;
+    char upper_bound = 126;
+    char interval_size = upper_bound - lower_bound + 1;
+
+    char shift_value = 5;
 
     if (pipe(fd) < 0) {
-        fprintf(stderr, "Error creating pipe");
+        perror("Error creating pipe");
+        exit(EXIT_FAILURE);
     }
 
-    /* Parent process */
-    if ((pid = fork()) > 0) {
-
-        close(fd[0]);
-        printf("Unencrypted: ");
-        fgets(input, MAX_INPUT, stdin);
-        write(fd[1], input, strlen(input));
-
-        /* Wait for child process */
-        if (waitpid(pid, NULL, 0) < 0) {
-            perror("Error waiting for child process");
-            exit(1);
-        }
-        close(fd[1]);
-        strcpy(input, "abc\n");
-        n = read(fd[0], input, MAX_INPUT);
-        printf("%s%s", "Encrypted: ", input);
-
+    if ((cpid = fork()) < 0) {
+        perror("Error forking");
+        exit(EXIT_FAILURE);
     }
 
-    /* Child process */
-    else {
-
-        close(fd[1]);
-        n = read(fd[0], input, MAX_INPUT);
-        /*sleep(3);*/
+    if (!cpid) {
+        /* Child process */
+        n = read(fd[0], buf, BUFSIZE);
         for (i = 0; i < n; i++) {
-            if (input[i] == '\n') {
-                /* Don't convert newline character */
+            if (buf[i] < lower_bound || buf[i] > upper_bound) {
+                /* Do not convert these characters */
                 continue;
             }
-            printf("%i\n", input[i]);
-            input[i] += shift_value;
+            buf[i] = ((int) buf[i] - lower_bound + shift_value) % interval_size + lower_bound;
         }
-        printf("%s%s", "Encrypted: ", input);
-        close(fd[0]);
-        write(fd[1], input, strlen(input));
-
-
+        write(fd[1], buf, strlen(buf));
+        _exit(EXIT_SUCCESS);
     }
 
-    exit(0);
+    printf("Unencrypted: ");
+    fgets(buf, BUFSIZE, stdin);
+    write(fd[1], buf, strlen(buf));
+
+    /* Wait for child process */
+    if (waitpid(cpid, NULL, 0) < 0) {
+        perror("Error waiting for child process");
+        exit(EXIT_FAILURE);
+    }
+
+    n = read(fd[0], buf, BUFSIZE);
+    printf("%s%s", "Encrypted: ", buf);
+
+    exit(EXIT_SUCCESS);
 
 }
