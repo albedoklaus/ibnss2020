@@ -33,7 +33,9 @@ Encrypted: Mjqqt%Htwtsf%7575&
 
 ## Aufgabe 3
 
-a) Die Fragmentierung heißt "Huge Page Fragmentation". Sie tritt auf, wenn eine Page nicht ans Betriebssystem zurückgegeben werden kann, da sie durch ein long-lived object benutzt wird.
+a) Die Fragmentierung heißt "Huge Page Fragmentation". Sie tritt auf, wenn eine Page nicht ans Betriebssystem zurückgegeben werden kann, da sie durch ein long-lived object benutzt wird. Dies ist kein Problem bei "normalen" Pages von beispielsweise 4 KiB, da dort die Wahrscheinlichkeit pro Seite sehr gering ist, dass ein long-lived object enthalten ist, und kann ignoriert werden. Bei huge pages von beispielsweise 2 MiB steigt die Wahrscheinlichkeit allerdings auf fast 100 %.
+
+b)
 
 ## Aufgabe 4
 
