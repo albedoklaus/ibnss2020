@@ -22,7 +22,7 @@ d) Der Dateidescriptor findet sich in `Z. 977 struct file_handle`. Das hängt ve
 
 Unser Code:
 
-\lstinputlisting[language=C]{IBN_04_2.c}
+\lstinputlisting{IBN_04_2.c}
 
 Beispielausgabe:
 
