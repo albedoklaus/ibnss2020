@@ -35,6 +35,8 @@ Encrypted: Mjqqt%Htwtsf%7575&
 
 ## Aufgabe 4
 
+a) Anzahl Einträge: $2^26 - 2^10 = 2^16 = 65536$ Einträge.
+
 ## Aufgabe 5
 
 a) Matrikelnummer entspricht Seitennummer, Wohnadresse entspricht Rahmennummer, Verzeichnis entspricht Seitentabelle. Das Offset in diesem Fall wäre die Zimmernummer im Wohnheim. (Wir nehmen an, dass wir Matrikelnummern - und damit anteilmäßig auch deren Offset - passend zu den Zimmernummer vergeben können, was in der Realität nicht der Fall ist.)
