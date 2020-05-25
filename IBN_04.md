@@ -30,3 +30,13 @@ Beispielausgabe:
 Unencrypted: Hello Corona 2020!
 Encrypted: Mjqqt%Htwtsf%7575&
 \end{lstlisting}
+
+## Aufgabe 3
+
+## Aufgabe 4
+
+## Aufgabe 5
+
+a) Matrikelnummer entspricht Seitennummer, Wohnadresse entspricht Rahmennummer, Verzeichnis entspricht Seitentabelle. Das Offset in diesem Fall wäre die Zimmernummer im Wohnheim. (Wir nehmen an, dass wir Matrikelnummern - und damit auch deren Offset - passend zu den Zimmernummer vergeben können, was in der Realität nicht der Fall ist.)
+
+b) Es gibt etwa 4800 / 65 = 73,8 Studierende pro Wohnheim. Für unsere Analogie verwenden wir daher 4-stellige Matrikelnummern: Die ersten beiden Ziffern beschreiben das Wohnheim, die letzten beiden Ziffern beschreiben die Zimmernummer. Wir können also alles von 0000 bis 9999 darstellen, was 10000 Einträgen entspricht. Der Anteil an relevanten Einträgen ist also 4800 / 10000 = 48%.
