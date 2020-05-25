@@ -37,7 +37,7 @@ a) Die Fragmentierung heißt "Huge Page Fragmentation". Sie tritt auf, wenn eine
 
 b)
 
-![plot](IBN_04_3.png)
+![](IBN_04_3.png)
 
 c)
 
