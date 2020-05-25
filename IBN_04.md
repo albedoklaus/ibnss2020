@@ -17,3 +17,16 @@ b)
 c) `Z. 936 - Z. 975`\footnote{https://elixir.bootlin.com/linux/v5.6.13/source/include/linux/fs.h\#L936}, geschätzter Speicherbedarf: $4*24$ Bytes $=96$ Bytes.
 
 d) Der Dateidescriptor findet sich in `Z. 977 struct file_handle`. Das hängt vermutlich mit dem durch einen mutex geschützten Bereich im `struct file` zusammen.
+
+## Aufgabe 2
+
+Unser Code:
+
+\lstinputlisting[language=C]{IBN_04_2.c}
+
+Beispielausgabe:
+
+\begin{lstlisting}[]
+Unencrypted: Hello Corona 2020!
+Encrypted: Mjqqt%Htwtsf%7575&
+\end{lstlisting}
