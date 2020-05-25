@@ -36,4 +36,5 @@ header-includes: |
       {ä}{{\"a}}1
       {ö}{{\"o}}1
       {~}{{\textasciitilde}}1
+      {_}{{\textunderscore}}1
   }
