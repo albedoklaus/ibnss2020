@@ -17,9 +17,8 @@ int main(void) {
     pid_t cpid;
 
     char buf[BUFSIZE];
-    int arschficker;
-    char lowerbound = 32;
-    char upperbound = 126;
+    char lower_bound = 32;
+    char upper_bound = 126;
     char interval_size = upper_bound - lower_bound + 1;
 
     char shift_value = 5;
