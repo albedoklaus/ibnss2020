@@ -47,6 +47,27 @@ a)
 
 - Mindestgröße der Seitentabelle: $3 * 65536 = 192$ kB.
 
+b)
+
+Analog zu Blatt 1:
+
+|                      | Wahrscheinlichkeit                                            |
+| -------------------- | ------------------------------------------------------------- |
+| Page hit             | $\frac{65536} {\frac{2^{26}}{8}} = 0.0078125 \approx 0.78 \%$ |
+| Page miss TLB hit    | $\frac{64}{\frac{2^{26}}{8}} = 9.5367431640625e-07$           |
+| Page miss TLB Miss   | $\approx 99.22 \%$                                            |
+
+Erwartete Zugriffszeit:
+
+\begin{align*}
+t_{ave} & = 0.9922 \cdot 1 \mu s + 0.0078 \cdot 0.5 \mu s \\
+        & \approx 0.9961 \mu s
+\end{align*}
+
+c)
+
+Die meisten Prozesse greifen sehr oft auf wenige Adressen zu, wodurch der kleine TLB seine Berechtigung erhält.
+
 ## Aufgabe 5
 
 a) Matrikelnummer entspricht Seitennummer, Wohnadresse entspricht Rahmennummer, Verzeichnis entspricht Seitentabelle. Das Offset in diesem Fall wäre die Zimmernummer im Wohnheim. (Wir nehmen an, dass wir Matrikelnummern - und damit anteilmäßig auch deren Offset - passend zu den Zimmernummer vergeben können, was in der Realität nicht der Fall ist.)
