@@ -21,9 +21,8 @@ d) Der Dateidescriptor findet sich in `Z. 977 struct file_handle`. Das hängt ve
 ## Aufgabe 2
 
 Unser Code:
-\newpage
 
-\protect \lstinputlisting[language=C]{IBN_04_2.c}
+\lstinputlisting[language=]{IBN_04_2.c}
 
 Beispielausgabe:
 
