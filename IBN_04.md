@@ -33,13 +33,13 @@ Encrypted: Mjqqt%Htwtsf%7575&
 
 ## Aufgabe 3
 
-a) Die Fragmentierung heißt "Huge Page Fragmentation". Sie tritt auf, wenn eine Page nicht ans Betriebssystem zurückgegeben werden kann, da sie durch ein long-lived object benutzt wird. Dies ist kein Problem bei "normalen" Pages von beispielsweise 4 KiB, da dort die Wahrscheinlichkeit pro Seite sehr gering ist, dass ein long-lived object enthalten ist, und kann ignoriert werden. Bei huge pages von beispielsweise 2 MiB steigt die Wahrscheinlichkeit allerdings auf fast 100 %.
+a) Die Fragmentierung heißt "Huge Page Fragmentation". Sie tritt auf, wenn eine Page nicht ans Betriebssystem zurückgegeben werden kann, da sie ein long-lived object enthält und dadurch noch benutzt wird. Dies ist kein Problem bei "normalen" Pages von beispielsweise 4 KiB, da dort die Wahrscheinlichkeit pro Seite sehr gering ist, dass ein long-lived object enthalten ist, und entsprechend ignoriert werden kann. Bei huge pages von beispielsweise 2 MiB steigt die Wahrscheinlichkeit allerdings auf fast 100 % und wird zum Problem.
 
-b)
+b) Diagramm Memory Address über Time für Folie "Swapping-Beispiel" aus Vorlesung 8:
 
 ![](IBN_04_3.png)
 
-c)
+c) Es muss eine Vorhersage der Lifetime passieren: Das kostet Rechenzeit (Vorhersage muss berechnet werden) und verlängert die Programmausführung (Warten bis Vorhersage berechnet ist). Es werden daher nicht alle Stack traces untersucht, sondern nur Stichproben genommen und anschließend eine Language-based Machine Learning Model darauf angewendent. Dies ist nötig, da weder pointer-based, noch symbol-based stack traces erfolgsversprechend sind, da sich Adressen und Funktionen bei Programm-Updates ändern. Zur weiteren Optimierung wird das Modell nicht jedes Mal neu berechnet, sondern es gibt einen Cache, wo Hashes und Predictions gespeichert sind.
 
 ## Aufgabe 4
 
