@@ -39,7 +39,7 @@ b) Diagramm Memory Address über Time für Folie "Swapping-Beispiel" aus Vorlesu
 
 ![](IBN_04_3.png)
 
-c) Es muss eine Vorhersage der Lifetime passieren: Das kostet Rechenzeit (Vorhersage muss berechnet werden) und verlängert die Programmausführung (Warten bis Vorhersage berechnet ist). Es werden daher nicht alle Stack traces untersucht, sondern nur Stichproben genommen und anschließend eine Language-based Machine Learning Model darauf angewendent. Dies ist nötig, da weder pointer-based, noch symbol-based stack traces erfolgsversprechend sind, da sich Adressen und Funktionen bei Programm-Updates ändern. Zur weiteren Optimierung wird das Modell nicht jedes Mal neu berechnet, sondern es gibt einen Cache, wo Hashes und Predictions gespeichert sind.
+c) Es muss eine Vorhersage der Lifetime passieren: Das kostet Rechenzeit (zur Berechnung der Vorhersage werden Rechner-Ressourcen verwenden, die zu dieser Zeit dann keinem anderen Prozess zur Verfügung stehen) und verlängert die Programmausführung (der Prozess muss eventuell warten, bis die Vorhersage berechnet ist). Es werden daher nicht alle Stack traces untersucht, sondern nur Stichproben genommen und anschließend eine Language-based Machine Learning Model darauf angewendent. Ein Language-based Model ist nötig, da weder pointer-based, noch symbol-based stack traces erfolgsversprechend sind, da sich Adressen und Funktionen bei Programm-Updates zu häufig und zu stark ändern. Zur weiteren Optimierung wird das Modell nicht jedes Mal neu berechnet, sondern es gibt einen Cache, wo Hashes und Predictions gespeichert sind.
 
 ## Aufgabe 4
 
