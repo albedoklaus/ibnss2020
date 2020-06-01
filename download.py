@@ -1,4 +1,5 @@
 import os
+import re
 import requests
 
 jobs = {
@@ -22,7 +23,9 @@ for job, folder in jobs.items():
         if item["file_path"] != "/" + item["file_name"]:
             msg = "file_path"
             raise NotImplementedError(msg)
-        filename = os.path.join(folder, item["file_name"])
+        filename = item["file_name"]
+        filename = re.sub(r"[^A-Za-z0-9._-]", "_", filename)
+        filename = os.path.join(folder, filename)
         if os.path.isfile(filename):
             if os.path.getsize(filename) == item["size"]:
                 print("Skipping {}".format(filename))
