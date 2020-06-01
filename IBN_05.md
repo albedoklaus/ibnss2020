@@ -64,7 +64,7 @@ Einträge indirekte Seitentabelle: $\frac{256 \cdot 1024^2}{2 \cdot 1024} = 1310
 
 ## Aufgabe 4
 
-Die zweistufige Seitentabelle ist ein Baum.
+Die zweistufige Seitentabelle ist ein Baum, somit müssen die Einträge einfach multipliziert werden.
 
 Anzahl Einträge: $2^{9} \cdot 2^{11} = 2^20$
 
@@ -75,4 +75,14 @@ Offset: $\frac{2^{32}}{2^{20}} = 2^{12} = 4096 \text{B}$
 Seitengröße: $2^{12} \text{B} = 4 \text{KiB}$
 
 ## Aufgabe 5
+
+Wo soll der Link sein? Unauffindbar! Bitte hier angeben?????
+
+## Aufgabe 6
+
+a) Seitengröße bis zu 1 GiB im langen Modus.\footnote{https://en.wikipedia.org/wiki/Page_(computer_memory)}
+
+b) Der Hauptgrund für die Suche nach kanonischen Adressen, anstatt die oberen Bits stillschweigend zu ignorieren, besteht darin, sicherzustellen, dass die Software mit zukünftiger Hardware, die mehr virtuelle Adressbits unterstützt, vorwärtskompatibel ist.\footnote{https://stackoverflow.com/questions/25852367/x86-64-canonical-address}
+
+## Aufgabe 7
 
