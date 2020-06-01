@@ -53,3 +53,11 @@ logical_address=16382, page_number=15, offset=1022
 logical_address=30000, page_number=29, offset=304
 logical_address=4385, page_number=4, offset=289
 \end{lstlisting}
+
+## Aufgabe 3
+
+32-Bit-Adressen
+
+2 KiB und 256 MiB
+
+Direkte Seitentabelle: $\frac{256 \cdot 1024^2}{2 \cdot 1024} \cdot \frac{32}{8} = 524288$
