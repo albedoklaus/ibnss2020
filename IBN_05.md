@@ -6,11 +6,11 @@ Betriebssysteme und Netzwerke (IBN)
 
 a)
 
-Nach JEDEC-Standard:
+Die Seitengröße von 1 KB entspricht nach JEDEC-Standard 1024 B.
 
 Minmales $M$ damit bei jeder Iteration eine neue Seite benötigt wird: $ \frac{4 KB}{4 B} = \frac{4 \cdot 1024 B}{4 B} = 1024 $
 
-Dafür muss $N > M$ und $N,M \in \mathbb{N}$ sein.
+Dafür muss $N > M$ und $N, M \in \mathbb{N}$ sein.
 
 b)
 
@@ -28,17 +28,28 @@ Anzahl der Seiten $ = \left \lceil \frac{N \cdot 4}{4 \cdot 1024} \right \rceil 
 
 ## Aufgabe 2
 
-Nach IEC-Standard:
+Die Seitengröße von 1 KiB entspricht nach IEC-Standard 1024 B.
 
-Seitengröße: 1 KiB $= 1024$
+Offset: logische Adresse modulo Seitengröße
 
-Offset: logische Adresse % Seitengröße
+Seitennummer: $\left \lfloor \frac{\text{logische Adresse}}{\text{Seitengre}} \right \rfloor $
 
-Seitennummer: $\left \lfloor \frac{\text{logische Adresse}}{\text{Seitengröße}} \right \rfloor $
+| logische Adresse | Seitennummer | Offset |
+| ---------------- | ------------ | ------ |
+| 2456             | 2            | 408    |
+| 16382            | 15           | 1022   |
+| 30000            | 29           | 304    |
+| 4385             | 4            | 289    |
 
-logische Adresse | Seitennummer | Offset |
-| -------------- | ------------ | ------ |
-| 2456           | 2            | 408    |
-| 16382          | 15           | 1022   |
-| 30000          | 29           | 304    |
-| 4385           | 4            | 289    |
+Code:
+
+\lstinputlisting[language=C]{IBN_05_2.c}
+
+Ausgabe:
+
+\begin{lstlisting}[]
+logical_address=2456, page_number=2, offset=408
+logical_address=16382, page_number=15, offset=1022
+logical_address=30000, page_number=29, offset=304
+logical_address=4385, page_number=4, offset=289
+\end{lstlisting}
