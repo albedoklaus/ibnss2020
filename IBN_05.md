@@ -32,13 +32,13 @@ Nach IEC-Standard:
 
 Seitengröße: 1 KiB $= 1024$
 
-Offset: logische Adresse $%$ Seitengröße
+Offset: logische Adresse % Seitengröße
 
 Seitennummer: $\left \lfloor \frac{\text{logische Adresse}}{\text{Seitengröße}} \right \rfloor $
 
 logische Adresse | Seitennummer | Offset |
 | -------------- | ------------ | ------ |
-|2456            | 2            | 408    |
-|16382           | 15           | 1022   |
-|30000           | 29           | 304    |
-|4385            | 4            | 289    |
+| 2456           | 2            | 408    |
+| 16382          | 15           | 1022   |
+| 30000          | 29           | 304    |
+| 4385           | 4            | 289    |
