@@ -56,8 +56,23 @@ logical_address=4385, page_number=4, offset=289
 
 ## Aufgabe 3
 
-Offset: $2 KiB = 2 \cdot 1024 B = 2 \cdot 2^10 B = 2^11 B$
+Offset: $2 \text{KiB} = 2 \cdot 1024 \text{B} = 2 \cdot 2^{10} \text{B} = 2^{11} \text{B}$
 
 Einträge direkte Seitentabelle: $\frac{2^{32}}{2^{11}} = 2^{21} = 2097152$
 
 Einträge indirekte Seitentabelle: $\frac{256 \cdot 1024^2}{2 \cdot 1024} = 131072$
+
+## Aufgabe 4
+
+Die zweistufige Seitentabelle ist ein Baum.
+
+Anzahl Einträge: $2^{9} \cdot 2^{11} = 2^20$
+
+Bonusaufgabe:
+
+Offset: $\frac{2^{32}}{2^{20}} = 2^{12} = 4096 \text{B}$
+
+Seitengröße: $2^{12} \text{B} = 4 \text{KiB}$
+
+## Aufgabe 5
+
