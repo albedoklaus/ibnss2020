@@ -34,7 +34,7 @@ Seitengröße: 1 KiB $= 1024$
 
 Offset: logische Adresse $%$ Seitengröße
 
-Seitennummer: $\left \lfloor$ logische Adresse $:$ Seitengröße $\right \rfloor $
+Seitennummer: $\left \lfloor \frac{\text{logische Adresse}}{\text{Seitengröße}} \right \rfloor $
 
 logische Adresse | Seitennummer | Offset |
 | -------------- | ------------ | ------ |
