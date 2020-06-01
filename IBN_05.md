@@ -18,7 +18,7 @@ Die Antwort würde anders ausfallen, da die letzen Einträge nach der Wenigstens
 
 Minimales $M$ damit die Einträge nicht mehr im TLB gespeichert weden: $ \frac{4 KB}{4 B} \cdot 64 = \frac{4 \cdot 1024 B}{4 B} \cdot 64 = 1024 \cdot 64 = 65536 $
 
-Dafür muss $N > M$ und $N,M \in \mathbb{N} sein.
+Dafür muss $N > M$ und $N,M \in \mathbb{N}$ sein.
 
 c)
 
