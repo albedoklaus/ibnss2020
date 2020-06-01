@@ -30,7 +30,7 @@ Anzahl der Seiten: $\left \lceil \frac{N \cdot 4}{4 \cdot 1024} \right \rceil$
 
 Die Seitengröße von 1 KiB entspricht nach IEC-Standard 1024 B.
 
-Offset: logische Adresse modulo Seitengröße
+Offset: logische Adresse % Seitengröße
 
 Seitennummer: $\left \lfloor \frac{\text{logische Adresse}}{\text{Seitengröße}} \right \rfloor$
 
