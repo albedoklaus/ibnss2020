@@ -84,4 +84,6 @@ b) Der Hauptgrund für die Suche nach kanonischen Adressen, anstatt die oberen B
 
 ## Aufgabe 8
 
+Zuerst wird Seite D als Opfer ausgewählt, da der E-Bit Wert 0 beträgt. Dann wird mit dem Second-Chance-Algorithmus Seite B ausgewählt, da es die erste Seite ist.
+
 ## Aufgabe 9
