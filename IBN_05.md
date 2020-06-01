@@ -10,7 +10,7 @@ Nach JEDEC-Standard:
 
 Minmales $M$ damit bei jeder Iteration eine neue Seite benötigt wird: $ \frac{4 KB}{4 B} = \frac{4 \cdot 1024 B}{4 B} = 1024 $
 
-Dafür muss $N > M$ und $N,M \in \mathbb{N} sein.
+Dafür muss $N > M$ und $N,M \in \mathbb{N}$ sein.
 
 b)
 
