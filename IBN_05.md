@@ -56,8 +56,8 @@ logical_address=4385, page_number=4, offset=289
 
 ## Aufgabe 3
 
-32-Bit-Adressen
+Offset: $2 KiB = 2^{14}$
 
-2 KiB und 256 MiB
+Einträge direkte Seitentabelle: $\frac{2^{32}}{2^{14}} = 2^{18} = 262144$
 
-Direkte Seitentabelle: $\frac{256 \cdot 1024^2}{2 \cdot 1024} \cdot \frac{32}{8} = 524288$
+Einträge indirekte Seitentabelle: $\frac{256 \cdot 1024^2}{2 \cdot 1024} = 131072$
