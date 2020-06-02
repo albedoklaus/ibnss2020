@@ -62,11 +62,11 @@ logical_address=4385, page_number=4, offset=289
 
 ## Aufgabe 3
 
-Offset: $2 \text{KiB} = 2 \cdot 1024 \text{B} = 2 \cdot 2^{10} \text{B} = 2^{11} \text{B}$
+Offsetlänge: $2 \text{KiB} = 2 \cdot 1024 \text{B} = 2 \cdot 2^{10} \text{B} = 2^{11} \text{B}$
 
 Einträge direkte Seitentabelle: $\frac{2^{32}}{2^{11}} = 2^{21} = 2097152$
 
-Einträge indirekte Seitentabelle: $\frac{256 \cdot 1024^2}{2 \cdot 1024} = 131072$
+Einträge indirekte Seitentabelle: $\frac{256 \text{MiB}}{2 \text{KiB}} = \frac{256 \cdot 1024^2 \text{B}}{2 \cdot 1024 \text{B}} = 131072$
 
 \newpage
 
@@ -74,11 +74,11 @@ Einträge indirekte Seitentabelle: $\frac{256 \cdot 1024^2}{2 \cdot 1024} = 1310
 
 Die zweistufige Seitentabelle ist ein Baum, somit müssen die Einträge einfach multipliziert werden.
 
-Anzahl Einträge: $2^{9} \cdot 2^{11} = 2^20$
+Anzahl Einträge: $2^{9} \cdot 2^{11} = 2^{20}$
 
 Bonusaufgabe:
 
-Offset: $\frac{2^{32}}{2^{20}} = 2^{12} = 4096 \text{B}$
+Offsetlänge: $\frac{2^{32}}{2^{20}} = 2^{12} = 4096 \text{B}$
 
 Seitengröße: $2^{12} \text{B} = 4 \text{KiB}$
 
@@ -110,7 +110,7 @@ Zuerst wird Seite D als Opfer ausgewählt, da der R-Bit Wert 0 beträgt. Dann wi
 
 Code:
 
-\lstinputlisting[language=C]{IBN_05_9.py}
+\lstinputlisting[language=Python]{IBN_05_9.py}
 
 Ausgabe:
 
