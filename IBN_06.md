@@ -93,12 +93,12 @@ Gesamtausfallwahrscheinlichkeit des Systems von $0.1^2 = 0.01$.
 Durch weitere Festplatten im RAID 0 System erhöht sich die
 Gesamtausfallwahrscheinlichkeit des Systems:
 
-$1 - (1 - p)^n \xrightarrow{n \to \infty} 1$
+$1 - (1 - p)^n \xrightarrow{p \in (0,1), n \to \infty} 1$
 
 Durch weitere Festplatten im RAID 1 System kann hingegen die Redundanz
 weiter erhöht werden:
 
-$p^n \xrightarrow{n \to \infty} 0$
+$p^n \xrightarrow{p \in (0,1), n \to \infty} 0$
 
 \newpage
 
