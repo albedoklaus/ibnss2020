@@ -12,7 +12,7 @@ Betriebssysteme und Netzwerke (IBN)
 
 ## Aufgabe 3
 
-- Symlinks/Softlinks werden erstellt mit:
+Symlinks/Softlinks werden erstellt mit:
 
 \begin{lstlisting}[]
 ln -s /Pfad/zur/originalen/Datei /Pfad/für/den/neuen/Symlink
@@ -23,7 +23,7 @@ Datei wurde aus dem Dateisystem entfernt und es existiert keine Referenz
 für den Originalpfad mehr. Wird unter dem Originalpfad wieder eine Datei
 angelegt, funktioniert der Symlink wieder.
 
-- Hardlinks werden erstellt mit:
+Hardlinks werden erstellt mit:
 
 \begin{lstlisting}[]
 ln /Pfad/zur/originalen/Datei /Pfad/für/den/neuen/Hardlink
@@ -95,8 +95,8 @@ Gesamtausfallwahrscheinlichkeit des Systems:
 
 $1 - (1 - p)^n \xrightarrow{n \to \infty} 1$
 
-Durch weitere Festplatten im RAID 1 System kann die Redundanz weiter
-erhöht werden:
+Durch weitere Festplatten im RAID 1 System kann hingegen die Redundanz
+weiter erhöht werden:
 
 $p^n \xrightarrow{n \to \infty} 0$
 
