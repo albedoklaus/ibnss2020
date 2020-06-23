@@ -23,11 +23,11 @@ Betriebssysteme und Netzwerke (IBN)
 \begin{tabular}{l|l}
 Quantum & Effizienz \\
 \hline
-$Q = \infty$ & $\frac{T}{T+S}$ \\
-$Q > T$      & $\frac{T}{T+S}$ \\
+$Q = \infty$ & $\frac{T}{T+\lceil \frac{T}{Q} \rceil \cdot S} = \frac{T}{T+S}$ \\
+$Q > T$      & $\frac{T}{T+\lceil \frac{T}{Q} \rceil \cdot S} = \frac{T}{T+S}$ \\
 $S < Q < T$  & $\frac{T}{T+\lceil \frac{T}{Q} \rceil \cdot S}$ \\
 $Q = S$      & $\frac{T}{T+\lceil \frac{T}{Q} \rceil \cdot S}$ \\
-$Q \to 0$    & $\frac{T}{S^{\infty}} = 0$ \\
+$Q \to 0$    & $\frac{T}{T+\lceil \frac{T}{Q} \rceil \cdot S} = \frac{T}{\infty} = 0$ \\
 \end{tabular}
 
 \newpage
