@@ -29,7 +29,7 @@ Wird eine andere Reihenfolge gewählt, zum Beispiel P1, P3, P2, dann kommt es zu
 
 Die *Heartbeat*-Erweiterung RFC 6520 testet sichere TLS / DTLS-Kommunikationsverbindungen, indem ein Computer an einem Ende einer Verbindung eine *Heartbeat*-Anforderungsnachricht senden kann, die aus einer Nutzlast, normalerweise einer Textzeichenfolge, zusammen mit der Länge der Nutzlast als 16-Bit-Ganzzahl besteht. Der empfangende Computer muss dann genau die gleiche Nutzlast an den Absender zurücksenden.
 
-Von dem Namen *Hearbeat* wurde für die Sicherheitslücke der Name *Heartbleed* abgeleitet, da mehr Informationen als nur ein Lebenszeichen übergeben werden können.
+Von dem Namen *Heartbeat* wurde für die Sicherheitslücke der Name *Heartbleed* abgeleitet, da mehr Informationen als nur ein Lebenszeichen übergeben werden können.
 
 Die betroffenen Versionen von OpenSSL weisen einen Speicherpuffer für die zurückzugebende Nachricht basierend auf dem Längenfeld in der anfordernden Nachricht zu, unabhängig von der tatsächlichen Größe der Nutzdaten dieser Nachricht. Aufgrund dieses Fehlers bei der ordnungsgemäßen Überprüfung der Grenzen besteht die zurückgegebene Nachricht aus der Nutzlast, möglicherweise gefolgt von dem, was sich sonst noch im zugewiesenen Speicherpuffer befindet.
 
