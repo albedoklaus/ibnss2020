@@ -21,6 +21,10 @@ Ausgabe:
 
 ## Aufgabe 2
 
+Die *Heartbeat*-Erweiterung RFC 6520 testet sichere TLS / DTLS-Kommunikationsverbindungen, indem ein Computer an einem Ende einer Verbindung eine *Heartbeat*-Anforderungsnachricht senden kann, die aus einer Nutzlast, normalerweise einer Textzeichenfolge, zusammen mit der Länge der Nutzlast als 16-Bit-Ganzzahl besteht. Der empfangende Computer muss dann genau die gleiche Nutzlast an den Absender zurücksenden.
+
+Die betroffenen Versionen von OpenSSL weisen einen Speicherpuffer für die zurückzugebende Nachricht basierend auf dem Längenfeld in der anfordernden Nachricht zu, unabhängig von der tatsächlichen Größe der Nutzdaten dieser Nachricht. Aufgrund dieses Fehlers bei der ordnungsgemäßen Überprüfung der Grenzen besteht die zurückgegebene Nachricht aus der Nutzlast, möglicherweise gefolgt von dem, was sich sonst noch im zugewiesenen Speicherpuffer befindet.
+
 \newpage
 
 ## Aufgabe 3
