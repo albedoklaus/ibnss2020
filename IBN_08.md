@@ -8,6 +8,8 @@ Code:
 
 \lstinputlisting[language=Python]{IBN_08_1.py}
 
+Quelle: https://de.wikipedia.org/wiki/Bankieralgorithmus
+
 Ausgabe:
 
 \begin{lstlisting}[]
@@ -16,6 +18,10 @@ Ausgabe:
 0 [3, 3, 3]
 (True, [1, 2, 0])
 \end{lstlisting}
+
+Entsprechend muss die Reihenfolge P2, P3, P1 sein, sodass es nicht zu einer Verklemmung kommt.
+
+Wird eine andere Reihenfolge gewählt, zum Beispiel P1, P3, P2, dann kommt es zu einem Deadlock, da vor Beenden der Prozesse Ressourcen benötigt werden, die wiederum durch andere Prozesse erst freigegeben werden müssten. Auch der Bankieralgorithmus findet unter Umständen keine Lösung.
 
 \newpage
 
