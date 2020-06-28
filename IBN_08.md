@@ -37,11 +37,15 @@ Die betroffenen Versionen von OpenSSL weisen einen Speicherpuffer für die zurü
 
 ## Aufgabe 3
 
-Es lassen sich sogenannte "guard pages" verwenden, die um den geschützten Speicherbereich herum angeordnet werden. Ein Buffer overflow und damit verbundenener Leseversuch anderer Stacks führt entsprechend zu einem segmentation fault, was zu einem Programmabstürzt führt.
+Es lassen sich sogenannte "guard pages" verwenden, die um den geschützten Speicherbereich herum angeordnet werden. Ein Buffer overflow und damit verbundenener Leseversuch anderer Stacks führt entsprechend zu einem segmentation fault, was wiederum zu einem Programmabsturz führt.
 
 \newpage
 
 ## Aufgabe 4
+
+Das Passwort wird "gesalzen" (mit dem Salt verbunden) in die Hashfunktion gegeben. Diese Funktion ist eine "one-way function" - kann also nicht umgekehrt werden. Bei aktuellen Hashfunktionen kann man also davon ausgehen, dass man sich zum Lösen in der Größenordnung der Dauer eines Brute-Force-Angriffs befindet. Eine Angriffsmöglichkeit ist also, nicht für jeden einzelnen Hashwert einen Brute-Force-Angriff auszuführen, sondern stattdessen sogenannte "Rainbow-Tables" zu verwenden, wo passend zum Hashwert mögliche Eingabewerte angegeben sind.
+
+Solche "Rainbow-Tables" müssen umso umfangreicher werden, je länger der Salt ist. (Und existieren deshalb nicht für lange Salts.) Deshalb ist es wichtig, dass der Salt lang genug gewählt wird. 12 bit sind heute nicht mehr ausreichend.
 
 \newpage
 
