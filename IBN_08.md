@@ -37,6 +37,8 @@ Die betroffenen Versionen von OpenSSL weisen einen Speicherpuffer für die zurü
 
 ## Aufgabe 3
 
+Es lassen sich sogenannte "guard pages" verwenden, die um den geschützten Speicherbereich herum angeordnet werden. Ein Buffer overflow und damit verbundenener Leseversuch anderer Stacks führt entsprechend zu einem segmentation fault, was zu einem Programmabstürzt führt.
+
 \newpage
 
 ## Aufgabe 4
