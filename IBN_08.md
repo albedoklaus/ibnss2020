@@ -11,7 +11,10 @@ Code:
 Ausgabe:
 
 \begin{lstlisting}[]
-
+1 [3, 2, 2]
+2 [3, 3, 3]
+0 [3, 3, 3]
+(True, [1, 2, 0])
 \end{lstlisting}
 
 \newpage
