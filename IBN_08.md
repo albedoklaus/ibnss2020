@@ -51,6 +51,10 @@ Solche "Rainbow-Tables" müssen umso umfangreicher werden, je länger der Salt i
 
 ## Aufgabe 5
 
+Um eine bestimmte Anzahl (beispielsweise 1000) Passwörter zum Einloggen zur Verfügung zu stellen, wird ein Initialpasswort $x$ und eine Einwegfunktion $F$ verwendet. $F^{1000}(x)$ muss für die erste Authentifizierung vorher auf dem Server abgelegt werden. Danach kann der Benutzer sich mit $F^999(x)$ einloggen, da ja $F(F^{999}(x)) = F^{1000}(x)$ ist, welcher Wert dem Server bekannt ist und zur Überprüfung des gesendeten Passworts verwendet werden kann. Das gesendete Passwort $F^{999}(x)$ ist danach wiederum der Hash für das nächste Passwort $F^{998}(x)$ und so weiter - bis $x$ erreicht ist.
+
+Es muss dabei die Reihenfolge $F^{1000}(x), F^{999}(x), ..., F^{1}(x)$ für die Hashes und $F^{999}(x), F^{998}(x), ..., x$ für die Passwörter verwendet werden (und nicht $F^{1}(x), F^{2}(x), ..., F^{1000}(x)$ beziehungsweise $x, F^{1}(x), ..., F^{999}(x)$), da die Einwegfunktion $F$ in dieser Richtung schnell abläuft und daher von einem Angreifer einfach alle nächsten Werte berechnet werden könnte, nachdem ein alter Wert abgefangen wurde.
+
 \newpage
 
 ## Aufgabe 6
