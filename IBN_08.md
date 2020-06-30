@@ -80,6 +80,31 @@ Offensichtlich ist die Dateigröße nur bedingt von der Auflösung abhängig, de
 
 ## Aufgabe 7
 
+Die Wahrscheinlichkeit, dass ein bestimmter Benutzer sendet ist $p$. Entsprechend
+ist die Wahrscheinlichkeit, dass dieser Benutzer gerade nicht sendet $1-p$. Sind
+gerade $X$ Benutzer am senden, kann die Anzahl der Benutzer, die gerade nicht senden,
+ausgerechnet werden über die Gesamtanzahl $M$ der Benutzer: $M-X$.
+
+Die kombinierte
+Wahrscheinlichkeit dieser Situation aus $X$ sendenden und $M-X$ nicht sendenden
+Benutzern ergibt sich zu $p^X \cdot (1-p)^{M-X}$.
+
+Da es jedoch keine Rolle spielt,
+in welcher Reihenfolge sich die einzelnen $p$, beziehungsweise $1-p$
+Wahrscheinlichkeiten kombinieren (es kann $p^X \cdot (1-p)^{M-X}$, oder
+$p^{X-1} \cdot (1-p)^{M-X} \cdot p$ oder $(1-p) \cdot p^{X-1} \cdot (1-p)^{M-X-1} \cdot p$
+sein etc.), muss die kombinierte Wahrscheinlichkeit noch mit der Anzahl der Kombinationsmöglichkeiten
+multipliziert werden. Diese Anzahl ergibt sich aus dem Binomialkoeffizienten $\binom{M}{X}$.
+
+Als Gesamtwahrscheinlichkeit erhalten wir also: $\binom{M}{X} \cdot p^X \cdot (1-p)^{M-X}$.
+Dies ist eine Binomialverteilung, siehe auch [https://de.wikipedia.org/wiki/Binomialverteilung](https://de.wikipedia.org/wiki/Binomialverteilung).
+
+Um nun auszurechnen, wie groß die Wahrscheinlichkeit ist, dass *mindestens* $N$
+Benutzer gleichzeitig senden, kann eine Summe der Wahrscheinlichkeiten für
+$X=N, X=N+1, ..., X=M$ gebildet werden: $\sum_{X=N}^{M} \binom{M}{X} \cdot p^X \cdot (1-p)^{M-X}$.
+
+
+
 \newpage
 
 ## Aufgabe 8
