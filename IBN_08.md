@@ -103,7 +103,17 @@ Um nun auszurechnen, wie groß die Wahrscheinlichkeit ist, dass *mindestens* $N$
 Benutzer gleichzeitig senden, kann eine Summe der Wahrscheinlichkeiten für
 $X=N, X=N+1, ..., X=M$ gebildet werden: $\sum_{X=N}^{M} \binom{M}{X} \cdot p^X \cdot (1-p)^{M-X}$.
 
+Wir verwenden zum Berechnen des Beispiels folgendes Skript:
 
+\lstinputlisting[language=Python]{IBN_08_7.py}
+
+Ausgabe:
+
+\begin{lstlisting}[]
+0.0
+\end{lstlisting}
+
+Die Wahrscheinlichkeit ist also verschwindend gering.
 
 \newpage
 
