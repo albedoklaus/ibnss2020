@@ -76,6 +76,19 @@ function sender is
 
 ## Aufgabe 6
 
+\begin{lstlisting}[]
+:\> ping -f -l 3000 10.0.0.1
+          3000 bytes Nutzlast des ICMP-Protokolles (Transportschicht)
+        +    8 bytes ICMP-Header (Transportschicht)
+        +   20 bytes IPv4-Header (der Vermittlungsschicht)
+       -------------
+        = 3028 bytes (Nutzlast von Ethernet)
+        +   14 bytes (Header der Sicherungsschicht)
+        +    4 bytes (Frame Check Sequence)
+       -------------
+        = 3046 bytes (kompletter Ethernet Frame)
+\end{lstlisting}
+
 \newpage
 
 ## Aufgabe 7
