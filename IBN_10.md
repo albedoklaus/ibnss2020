@@ -37,7 +37,7 @@ Der Resource Record (RR) beinhaltet die angefragten Informationen einer DNS-Abfr
 
 ## Aufgabe 5
 
-Pseudocode für das Geh-Zurück-N-Protokoll:
+Pseudocode\footnote{https://en.wikipedia.org/wiki/Go-Back-N_ARQ} für das Geh-Zurück-N-Protokoll:
 
 \begin{lstlisting}[]
 N  := window size
@@ -68,7 +68,7 @@ function sender is
             Packets are transmitted in order.
 \end{lstlisting}
 
-1. Erste Iteration: $Sm = 4$, Sequenznummernbereich $= k \in {0,1,2,3,4}$
+1. Erste Iteration: $Sm = 4$, Sequenznummernbereich $= k \in \{0,1,2,3,4\}$
 
 2. KP
 
