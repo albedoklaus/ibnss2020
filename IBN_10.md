@@ -55,7 +55,7 @@ function sender is
     Sm := N + 1
     Repeat the following steps forever:
         if you receive a request number where Rn > Sb then
-            Sm := (Sm − Sb) + Rn
+            Sm := (Sm - Sb) + Rn
             Sb := Rn
         if no packet is in transmission then
             Transmit a packet where Sb <= Sn <= Sm.  
