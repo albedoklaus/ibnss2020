@@ -111,6 +111,26 @@ last-modified:   2001-09-22T09:32:38Z
 source:          RIPE
 \end{lstlisting}
 
+\begin{lstlisting}[]
+:\>tracert pvs.ifi.uni-heidelberg.de
+
+Tracing route to pvs.ifi.uni-heidelberg.de [129.206.61.40]
+over a maximum of 30 hops:
+
+  1    <1 ms     1 ms     1 ms  fritz.box [192.168.0.1]
+  2     4 ms     4 ms     4 ms  p3e9bf638.dip0.t-ipconnect.de [62.155.246.56]
+  3     7 ms     6 ms     6 ms  pd900cb1a.dip0.t-ipconnect.de [217.0.203.26]
+  4     7 ms     7 ms     7 ms  80.157.200.198
+  5     9 ms     9 ms     9 ms  kar-rz-a99-hu0-2-0-0.belwue.net [129.143.60.114]
+  6    11 ms    11 ms    11 ms  ar-hdlrz.belwue.net [193.197.63.3]
+  7    10 ms    10 ms    10 ms  129.206.212.22
+  8    10 ms    10 ms    10 ms  pvs.ifi.uni-heidelberg.de [129.206.61.40]
+
+Trace complete.
+
+:\>
+\end{lstlisting}
+
 \newpage
 
 ## Aufgabe 8
