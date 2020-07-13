@@ -58,7 +58,7 @@ function sender is
             Sm := (Sm − Sb) + Rn
             Sb := Rn
         if no packet is in transmission then
-            Transmit a packet where Sb ≤ Sn ≤ Sm.  
+            Transmit a packet where Sb <= Sn <= Sm.  
             Packets are transmitted in order.
 \end{lstlisting}
 
