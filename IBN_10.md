@@ -80,6 +80,37 @@ function sender is
 
 ## Aufgabe 7
 
+Es handelt sich um Klasse-B-Netzwerke.
+
+Im RIPE NCC finden sich unter [https://apps.db.ripe.net/db-web-ui/query?bflag=false&dflag=false&rflag=true&searchtext=147.142.0.1&source=RIPE](https://apps.db.ripe.net/db-web-ui/query?bflag=false&dflag=false&rflag=true&searchtext=147.142.0.1&source=RIPE) folgende Informationen:
+
+\begin{lstlisting}[]
+inetnum:         147.142.0.0 - 147.142.255.255
+netname:         HD-BNET
+descr:           Ruprecht-Karls-Universitaet Heidelberg
+descr:           Heidelberg, Germany
+country:         DE
+org:             ORG-UH5-RIPE
+admin-c:         UH593-RIPE
+tech-c:          UH593-RIPE
+status:          LEGACY
+remarks:         **************************************************
+remarks:         * DEFAULT ABUSE CONTACT: abuse@uni-heidelberg.de *
+remarks:         **************************************************
+mnt-by:          BELWUE-MNT
+created:         1970-01-01T00:00:00Z
+last-modified:   2019-12-04T13:10:04Z
+source:          RIPE
+
+route:           147.142.0.0/16
+descr:           UNI-HEIDELBERG
+origin:          AS553
+mnt-by:          BELWUE-MNT
+created:         1970-01-01T00:00:00Z
+last-modified:   2001-09-22T09:32:38Z
+source:          RIPE
+\end{lstlisting}
+
 \newpage
 
 ## Aufgabe 8
