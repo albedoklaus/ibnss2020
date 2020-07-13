@@ -15,6 +15,8 @@ Achtung, alles falsch!
 
 ## Aufgabe 2
 
+Das TCN-Protokoll basiert auf temporären Kontaktnummern (Temporary Contact Numbers, TCN), halbzufälligen Kennungen, die aus einem Startwert abgeleitet wurden. Wenn sich zwei Clients begegnen, wird ein eindeutiger TCN generiert, ausgetauscht und dann lokal in einem Kontaktprotokoll gespeichert. Sobald ein Benutzer positiv auf eine Infektion getestet hat, wird ein Bericht an einen zentralen Server gesendet. Jeder Client im Netzwerk sammelt dann die Berichte vom Server und überprüft unabhängig seine lokalen Kontaktprotokolle auf einen im Bericht enthaltenen TCN. Wenn eine passende TCN gefunden wird, ist der Benutzer in engen Kontakt mit einem infizierten Patienten gekommen und wird vom Client gewarnt. Da jedes Gerät Kontaktprotokolle lokal überprüft und Kontaktprotokolle daher niemals an Dritte übertragen werden, kann der zentrale Berichtsserver die Identität oder das Kontaktprotokoll eines Clients im Netzwerk nicht selbst ermitteln. Dies steht im Gegensatz zu konkurrierenden Protokollen wie BlueTrace, bei denen der zentrale Berichtsserver Client-Kontaktprotokolle empfängt und verarbeitet.
+
 \newpage
 
 ## Aufgabe 3
