@@ -31,6 +31,41 @@ Nachteile: Die Entfernung der Beacons muss über Signalstärke abgeschätzt werd
 
 ## Aufgabe 5
 
+Pseudocode für das Geh-Zurück-N-Protokoll:
+
+\begin{lstlisting}[]
+N  := window size
+Rn := request number
+Sn := sequence number
+Sb := sequence base
+Sm := sequence max
+
+function receiver is
+    Rn := 0
+    Do the following forever:
+        if the packet received = Rn and the packet is error free then
+            Accept the packet and send it to a higher layer
+            Rn := Rn + 1
+        else
+            Refuse packet
+        Send a Request for Rn
+
+function sender is
+    Sb := 0
+    Sm := N + 1
+    Repeat the following steps forever:
+        if you receive a request number where Rn > Sb then
+            Sm := (Sm − Sb) + Rn
+            Sb := Rn
+        if no packet is in transmission then
+            Transmit a packet where Sb ≤ Sn ≤ Sm.  
+            Packets are transmitted in order.
+\end{lstlisting}
+
+1. Erste Iteration: $Sm = 4$, Sequenznummernbereich $= k \in {0,1,2,3,4}$
+
+2. KP
+
 \newpage
 
 ## Aufgabe 6
