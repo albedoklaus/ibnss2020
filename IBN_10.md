@@ -23,6 +23,12 @@ Nachteile: Die Entfernung der Beacons muss über Signalstärke abgeschätzt werd
 
 ## Aufgabe 3
 
+Um eine Internetadresse zu öffnen, muss der Client wissen, welcher Server zu dieser Adresse gehört und wie er erreicht werden kann. Dazu wird die IP-Adresse benötigt. Ein DNS-Server vermittelt zwischen Internetadresse und IP-Adresse.
+
+Bei einer iterativen DNS-Abfrage kennt der DNS-Server die IP-Adresse zur angefragten Internetadresse und gibt das Ergebnis sofort zurück. Im Gegensatz dazu werden bei einer rekursiven DNS-Abfrage durch den DNS-Server weitere andere DNS-Server kontaktiert und auch deren Ergebnisse zurückgegeben. (Dies birgt Risiken wie denial of service Angriffe, DNS cache poisoning und so weiter.)
+
+Der Resource Record (RR) beinhaltet die angefragten Informationen einer DNS-Abfrage. Bei A (Address record) wird die IPv4-Adresse eines Hosts, also einer Internetadresse zurückgegeben. Bei NS handelt es sich um den Nameserver record, also die DNS-Zone und den Host des Nameservers. Der Canonical Name record (CNAME) enthält einen weiteren Namen (Alias) für einen Host, sodass einer Domäne ein weiterer Namen zugeordnet werden kann.
+
 \newpage
 
 ## Aufgabe 4
