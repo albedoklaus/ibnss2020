@@ -37,7 +37,7 @@ Der Resource Record (RR) beinhaltet die angefragten Informationen einer DNS-Abfr
 
 ## Aufgabe 5
 
-Pseudocode\footnote{https://en.wikipedia.org/wiki/Go-Back-N_ARQ} für das Geh-Zurück-N-Protokoll:
+Pseudocode für das Geh-Zurück-N-Protokoll:
 
 \begin{lstlisting}[]
 N  := window size
@@ -68,9 +68,9 @@ function sender is
             Packets are transmitted in order.
 \end{lstlisting}
 
-1. Erste Iteration: $Sm = 4$, Sequenznummernbereich $= k \in \{0,1,2,3,4\}$
+Siehe: [https://en.wikipedia.org/wiki/Go-Back-N_ARQ](https://en.wikipedia.org/wiki/Go-Back-N_ARQ)
 
-2. KP
+Die erste Iteration ergibt $Sm = 4$ mit Sequenznummernbereich $= k \in \{0,1,2,3,4\}$.
 
 \newpage
 
@@ -88,6 +88,8 @@ function sender is
        -------------
         = 3046 bytes (kompletter Ethernet Frame)
 \end{lstlisting}
+
+Wir benötigen also 9 Fragmente.
 
 \newpage
 
@@ -124,6 +126,8 @@ last-modified:   2001-09-22T09:32:38Z
 source:          RIPE
 \end{lstlisting}
 
+Wir betrachten die Traceroute ins 129.206/16 subnet.
+
 \begin{lstlisting}[]
 :\>tracert pvs.ifi.uni-heidelberg.de
 
@@ -140,9 +144,9 @@ over a maximum of 30 hops:
   8    10 ms    10 ms    10 ms  pvs.ifi.uni-heidelberg.de [129.206.61.40]
 
 Trace complete.
-
-:\>
 \end{lstlisting}
+
+Der Sprung nach 129.206/16 passiert direkt vor der Zieladresse.
 
 \newpage
 
