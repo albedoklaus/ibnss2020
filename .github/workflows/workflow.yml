@@ -87,8 +87,6 @@ jobs:
           path: build
   deploy:
     runs-on: ubuntu-latest
-    container:
-      image: debian:buster
     needs: build
     steps:
       - name: Install dependencies
