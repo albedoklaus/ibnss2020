@@ -91,6 +91,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Cache
+        uses: actions/cache@v1
+        with:
+          path: /usr/local/texlive
+          key: texlive-${{ github.sha }}
+          restore-keys: |
+            texlive-
       - name: Download artifacts
         uses: actions/download-artifact@v1
         with:
