@@ -89,19 +89,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - name: Install dependencies
-        run: |
-          apt update
-          apt install -y git hub perl python wget
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Cache
-        uses: actions/cache@v1
-        with:
-          path: /usr/local/texlive
-          key: texlive-${{ github.sha }}
-          restore-keys: |
-            texlive-
       - name: Download artifacts
         uses: actions/download-artifact@v1
         with:
